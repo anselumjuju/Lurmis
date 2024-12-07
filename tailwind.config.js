@@ -5,7 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'aboreto': ['Aboreto', 'cursive'],
+        'figtree': ['Figtree', 'sans-serif']
+      },
+      colors: {
+        'gray': '#141414',
+        'light-gray': '#dfdfdf',
+      }
+    },
   },
   plugins: [],
 }
