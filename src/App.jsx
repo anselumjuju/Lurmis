@@ -1,9 +1,10 @@
 import './App.css'
-import { Home } from './pages'
+import { Config, Home } from './pages'
 
 function App() {
   return (
     <div className='w-full h-screen overflow-x-hidden font-figtree'>
+      <Config />
       <Home />
     </div>
   )

@@ -1,4 +1,5 @@
 import { Header, PrimaryButton } from "../components"
+import { ArrowRight } from "lucide-react"
 
 const Hero = () => {
 	return (
@@ -15,7 +16,7 @@ const Hero = () => {
 				<div className="w-full flex flex-col gap-y-8 items-center justify-center text-center">
 					<p className="text-sm lg:text-xl uppercase">Illuminate your Moments</p>
 					<p className="text-3xl md:text-4xl lg:text-5xl font-aboreto">Bright Ideas. Warm Light.<br className="hidden md:block" /> Perfect Moments</p>
-					<PrimaryButton text='3D Configurator' isIcon />
+					<PrimaryButton text='3D Configurator' endIcon={ArrowRight} onClick={() => { }} className={'px-4 py-3 md:px-6'} isResponsive={false} />
 				</div>
 			</div>
 		</div>

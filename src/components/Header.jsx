@@ -3,7 +3,7 @@ import Logo from "./ui/Logo"
 const Header = () => {
 	return (
 		<div className="w-full">
-			<Logo />
+			<Logo className={"fill-white"} />
 		</div>
 	)
 }
