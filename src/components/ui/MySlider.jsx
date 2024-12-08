@@ -1,5 +1,5 @@
 import { Slider } from "@/components/ui/Slider";
-import { cn } from "@/utils/utils";
+import { cn } from "@/lib/utils";
 import { useState } from "react";
 
 const MySlider = ({ startIcon: StartIcon, endIcon: EndIcon, className }) => {

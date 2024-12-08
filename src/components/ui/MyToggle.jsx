@@ -1,5 +1,5 @@
 import { Switch } from "@/components/ui/switch";
-import { cn } from "@/utils/utils";
+import { cn } from "@/lib/utils";
 import { Lightbulb, LightbulbOff } from "lucide-react";
 import { useState } from "react";
 

@@ -1,4 +1,4 @@
-import { cn } from "../../utils/utils";
+import { cn } from "@/lib/utils";
 
 const PrimaryButton = ({ text, onClick, startIcon: StartIcon, endIcon: EndIcon, isResponsive, variant, className }) => {
 	const baseStyles = "w-max px-[15px] py-2.5 rounded-full flex items-center gap-x-3 group";
