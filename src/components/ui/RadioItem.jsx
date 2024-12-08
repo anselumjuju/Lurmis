@@ -1,9 +1,9 @@
 import { RadioGroupItem } from "@/components/ui/radio-group";
 import { Check } from "lucide-react";
 
-const RadioItem = ({ bgColor, imgPath, label, value, isSelected }) => {
+const RadioItem = ({ bgColor, imgPath, label, value, isSelected, onClick }) => {
 	return (
-		<div className="w-max h-max mx-1 space-y-2 relative cursor-pointer">
+		<div className="w-max h-max mx-1 space-y-2 relative cursor-pointer" onClick={onClick}>
 			<RadioGroupItem
 				id="radio-12-cc"
 				value="cc"

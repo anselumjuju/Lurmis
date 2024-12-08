@@ -1,4 +1,7 @@
+import useStore from "@/store/store"
+
 const Section3 = () => {
+	const { setPage } = useStore()
 	return (
 		<div className="section h-full space-y-8">
 			<h1 className="text-2xl md:text-3xl lg:text-4xl font-aboreto text-right">Create your ideal lamp tailored<br className="hidden md:block" /> to your space with the lurmis configurator</h1>
@@ -11,7 +14,7 @@ const Section3 = () => {
 				</div>
 
 				<div className="w-full h-[40vh] lg:h-[50vh] flex items-start lg:items-end gap-4">
-					<p className="w-[60%] text-right lg:text-left cursor-pointer text-sm lg:text-md">Configure Now</p>
+					<p className="w-[60%] text-right lg:text-left cursor-pointer text-sm lg:text-md" onClick={() => setPage('config')}>Configure Now</p>
 					<div className="w-full h-full"><img src="/assets/sec1-img3.png" alt="img" className="w-full h-full object-cover object-top" /></div>
 				</div>
 

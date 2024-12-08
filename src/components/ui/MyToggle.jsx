@@ -1,10 +1,16 @@
 import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
+import useStore from "@/store/store";
 import { Lightbulb, LightbulbOff } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const MyToggle = ({ className }) => {
-	const [checked, setChecked] = useState(false);
+	const { isLightOn, setIsLightOn } = useStore();
+	const [checked, setChecked] = useState(isLightOn);
+
+	useEffect(() => {
+		setIsLightOn(checked);
+	}, [checked]);
 
 	const toggleSwitch = () => setChecked((prev) => !prev);
 

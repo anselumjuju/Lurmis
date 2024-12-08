@@ -3,11 +3,11 @@ import { RadioGroup } from "@/components/ui/radio-group";
 import MySlider from "./ui/MySlider"
 import MyToggle from "./ui/MyToggle"
 import RadioItem from "./ui/RadioItem"
+import useStore from "@/store/store";
 
 const Controls = () => {
 
-	const selectedMaterial = 'oak';
-	const selectedColor = 'white';
+	const { material, setMaterial, color, setColor } = useStore()
 
 	const materialData = [
 		{ label: 'Bleach', value: 'bleach', imgPath: '/assets/bleach.png' },
@@ -34,7 +34,8 @@ const Controls = () => {
 								value={value}
 								label={label}
 								imgPath={imgPath}
-								isSelected={value === selectedMaterial}
+								isSelected={value === material}
+								onClick={() => setMaterial(value)}
 							/>
 						))
 					}
@@ -52,7 +53,8 @@ const Controls = () => {
 									value={value}
 									label={label}
 									bgColor={bgColor}
-									isSelected={value === selectedColor}
+									isSelected={value === color}
+									onClick={() => setColor(value)}
 								/>
 							))
 					}
@@ -72,7 +74,8 @@ const Controls = () => {
 								value={value}
 								label={label}
 								bgColor={bgColor}
-								isSelected={value === selectedColor}
+								isSelected={value === color}
+								onClick={() => setColor(value)}
 							/>
 						))
 					}

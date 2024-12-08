@@ -1,9 +1,15 @@
+import { useEffect, useState } from "react";
 import { Slider } from "@/components/ui/Slider";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import useStore from "@/store/store";
 
 const MySlider = ({ startIcon: StartIcon, endIcon: EndIcon, className }) => {
-	const [value, setValue] = useState([25]);
+	const { colorTemp, setColorTemp } = useStore();
+	const [value, setValue] = useState([colorTemp]);
+
+	useEffect(() => {
+		setColorTemp(value[0]);
+	}, [value]);
 
 	return (
 		<div className={cn("flex items-center gap-3 text-gray", className)}>
