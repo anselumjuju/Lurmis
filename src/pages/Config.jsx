@@ -3,7 +3,7 @@ import { Controls, Logo, PrimaryButton } from "../components"
 
 const Config = () => {
 	return (
-		<div className="w-full h-dvh flex flex-col lg:flex-row bg-neutral-300">
+		<div className="w-full h-dvh max-h-screen flex flex-col lg:flex-row bg-neutral-300 overflow-y-hidden">
 
 			{/* 3D */}
 			<div className="w-full h-full relative">
@@ -16,7 +16,7 @@ const Config = () => {
 			</div>
 
 			{/* Controls */}
-			<div className="w-full h-[80%] lg:h-full p-5 flex flex-col gap-y-3 bg-white rounded-t-3xl lg:rounded-t-none overflow-y-auto">
+			<div className="w-full h-full p-5 flex flex-col gap-y-3 bg-white rounded-t-3xl lg:rounded-t-none overflow-y-auto">
 				<div className="flex items-center justify-between">
 					<span className="justify-center hidden lg:flex"><Logo className={'fill-gray'} /></span>
 					<PrimaryButton text='Contact' startIcon={MailIcon} onClick={() => { }} isResponsive className={'lg:px-7 py-2.5'} />
@@ -25,7 +25,7 @@ const Config = () => {
 						<PrimaryButton text='Download' startIcon={Download} onClick={() => { }} isResponsive className={'lg:px-7 py-2.5'} variant={'outlined'} />
 					</div>
 				</div>
-				<div className="flex-1"><Controls /></div>
+				<Controls />
 				<div className="hidden lg:flex flex-col items-end space-y-3">
 					<PrimaryButton text='Share' startIcon={Share2} onClick={() => { }} isResponsive className={'lg:px-7 py-2.5'} variant={'outlined'} />
 					<PrimaryButton text='Download' startIcon={Download} onClick={() => { }} isResponsive className={'lg:px-7 py-2.5'} variant={'outlined'} />
