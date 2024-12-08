@@ -23,7 +23,7 @@ const Controls = () => {
 	]
 
 	return (
-		<div className="max-w-xl h-full py-5 space-y-10 overflow-y-auto no-scrollbar">
+		<div className="max-w-xl h-full py-5 space-y-10">
 			<div className="space-y-4">
 				<p className="text-md uppercase text-semibold">Lamp Material</p>
 				<RadioGroup className="grid-cols-3 sm:grid-cols-5 lg:grid-cols-4 gap-4" defaultValue="cc">
@@ -82,8 +82,6 @@ const Controls = () => {
 				<p className="text-md uppercase text-semibold">Turn ON/OFF</p>
 				<MyToggle />
 			</div>
-			{/* 			
-			*/}
 		</div>
 	)
 }

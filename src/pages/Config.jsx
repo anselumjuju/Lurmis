@@ -3,7 +3,7 @@ import { Controls, Logo, PrimaryButton } from "../components"
 
 const Config = () => {
 	return (
-		<div className="w-full h-dvh max-h-screen flex flex-col lg:flex-row bg-neutral-300 overflow-y-hidden">
+		<div className="w-full h-dvh flex flex-col lg:flex-row bg-neutral-300 overflow-y-hidden">
 
 			{/* 3D */}
 			<div className="w-full h-full relative">
@@ -25,8 +25,10 @@ const Config = () => {
 						<PrimaryButton text='Download' startIcon={Download} onClick={() => { }} isResponsive className={'lg:px-7 py-2.5'} variant={'outlined'} />
 					</div>
 				</div>
-				<Controls />
-				<div className="hidden lg:flex flex-col items-end space-y-3">
+				<div className="flex-1">
+					<Controls />
+				</div>
+				<div className="flex-col items-end space-y-3 hidden lg:flex">
 					<PrimaryButton text='Share' startIcon={Share2} onClick={() => { }} isResponsive className={'lg:px-7 py-2.5'} variant={'outlined'} />
 					<PrimaryButton text='Download' startIcon={Download} onClick={() => { }} isResponsive className={'lg:px-7 py-2.5'} variant={'outlined'} />
 				</div>
