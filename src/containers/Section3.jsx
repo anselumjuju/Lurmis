@@ -14,7 +14,9 @@ const Section3 = () => {
 				</div>
 
 				<div className="w-full h-[40vh] lg:h-[50vh] flex items-start lg:items-end gap-4">
-					<p className="w-[60%] text-right lg:text-left cursor-pointer text-sm lg:text-md" onClick={() => setPage('config')}>Configure Now</p>
+					<p className="w-[60%] text-right lg:text-left cursor-pointer text-sm lg:text-md" onClick={() => setPage('config')}>
+						<span className="relative after:content-[''] after:h-[1px] after:absolute after:right-0 after:-bottom-[2px] after:bg-gray after:w-[0%] hover:after:w-[80%] transition-all duration-300">Configure Now</span>
+					</p>
 					<div className="w-full h-full"><img src="/assets/sec1-img3.png" alt="img" className="w-full h-full object-cover object-top" /></div>
 				</div>
 
