@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 const PrimaryButton = ({ text, onClick, startIcon: StartIcon, endIcon: EndIcon, isResponsive, variant, className }) => {
-	const baseStyles = "w-max px-[15px] py-2.5 rounded-full flex items-center gap-x-3 group";
+	const baseStyles = "w-max px-[15px] py-2.5 rounded-full flex items-center gap-x-3 hover:scale-105 transition-all duration-150";
 	const variantStyles =
 		variant === "outlined"
 			? "bg-transparent border border-gray text-gray"
@@ -14,9 +14,9 @@ const PrimaryButton = ({ text, onClick, startIcon: StartIcon, endIcon: EndIcon, 
 			className={cn(`${baseStyles} ${variantStyles}`, className)}
 			onClick={onClick}
 		>
-			{StartIcon && <StartIcon className="w-4 group-hover:w-6 transition-all duration-150" />}
+			{StartIcon && <StartIcon className="w-4" />}
 			{text && <span className={`${isResponsive && "hidden lg:block"}`}>{text}</span>}
-			{EndIcon && <EndIcon className="w-4 group-hover:w-6 transition-all duration-150" />}
+			{EndIcon && <EndIcon className="w-4" />}
 		</button>
 	);
 };
