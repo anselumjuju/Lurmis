@@ -4,7 +4,7 @@ import { Frame, Joints, Light, Stand1, Stand2 } from '../models'
 const Lamp = () => {
 	const { stand } = useStore()
 	return (
-		<group position={[0, -1, 0]}>
+		<group position={[0, -1, 0]} castShadow>
 			<Frame />
 			<Light />
 			<Joints />

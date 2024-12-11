@@ -9,9 +9,9 @@ const Stand2 = (props) => {
 
   return (
     <group {...props} dispose={null}>
-      <mesh name="Cube014" geometry={nodes.Cube014.geometry} material={material} />
-      <mesh name="Cube014_1" geometry={nodes.Cube014_1.geometry} material={material} />
-      <mesh name="Cube014_2" geometry={nodes.Cube014_2.geometry} material={material} />
+      <mesh name="Cube014" geometry={nodes.Cube014.geometry} material={material} castShadow />
+      <mesh name="Cube014_1" geometry={nodes.Cube014_1.geometry} material={material} castShadow />
+      <mesh name="Cube014_2" geometry={nodes.Cube014_2.geometry} material={material} castShadow />
     </group>
   )
 }

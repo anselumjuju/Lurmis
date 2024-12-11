@@ -10,9 +10,9 @@ const Frame = (props) => {
 
   return (
     <group {...props} dispose={null}>
-      <mesh name="Cube" geometry={nodes.Cube.geometry} material={material} />
-      <mesh name="Cube_1" geometry={nodes.Cube_1.geometry} material={material} />
-      <mesh name="Cube_2" geometry={nodes.Cube_2.geometry} material={material} />
+      <mesh name="Cube" geometry={nodes.Cube.geometry} material={material} castShadow />
+      <mesh name="Cube_1" geometry={nodes.Cube_1.geometry} material={material} castShadow />
+      <mesh name="Cube_2" geometry={nodes.Cube_2.geometry} material={material} castShadow />
     </group>
   );
 };
