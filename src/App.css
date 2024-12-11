@@ -2,17 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-canvas {
-  width: 100%;
-  height: 100%;
-}
-
 .section {
   @apply w-full max-w-screen-2xl mx-auto px-5 2xl:px-0;
-}
-
-img {
-  @apply relative after:content-[''] after:absolute after:inset-0 after:bg-red-800 after:z-10 after:w-full after:h-full;
 }
 
 @layer base {
