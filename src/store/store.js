@@ -12,7 +12,9 @@ const useStore = create(set => ({
 	colorTemp: 50,
 	setColorTemp: (colorTemp) => set(() => ({ colorTemp })),
 	isLightOn: true,
-	setIsLightOn: (isLightOn) => set(() => ({ isLightOn }))
+	setIsLightOn: (isLightOn) => set(() => ({ isLightOn })),
+	stand: 'stand1',
+	setStand: (stand) => set(() => ({ stand }))
 }))
 
 export default useStore

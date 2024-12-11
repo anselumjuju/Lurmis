@@ -7,7 +7,7 @@ import useStore from "@/store/store";
 
 const Controls = () => {
 
-	const { material, setMaterial, color, setColor } = useStore()
+	const { material, setMaterial, color, setColor, stand, setStand } = useStore()
 
 	const materialData = [
 		{ label: 'Bleach', value: 'bleach', imgPath: '/assets/bleach.png' },
@@ -20,6 +20,11 @@ const Controls = () => {
 		{ label: 'red', value: 'red', bgColor: 'bg-red-600' },
 		{ label: 'green', value: 'green', bgColor: 'bg-green-600' },
 		{ label: 'blue', value: 'blue', bgColor: 'bg-blue-600' },
+	]
+
+	const standData = [
+		{ label: 'Stand 1', value: 'stand1', imgPath: '/assets/stand1.png' },
+		{ label: 'Stand 2', value: 'stand2', imgPath: '/assets/stand2.png' },
 	]
 
 	return (
@@ -76,6 +81,23 @@ const Controls = () => {
 								bgColor={bgColor}
 								isSelected={value === color}
 								onClick={() => setColor(value)}
+							/>
+						))
+					}
+				</RadioGroup>
+			</div>
+			<div className="space-y-4">
+				<p className="text-md uppercase text-semibold">Base Types</p>
+				<RadioGroup className="grid-cols-3 sm:grid-cols-5 lg:grid-cols-4 gap-4" defaultValue="cc">
+					{
+						standData.map(({ label, value, imgPath }) => (
+							<RadioItem
+								key={value}
+								value={value}
+								label={label}
+								imgPath={imgPath}
+								isSelected={value === stand}
+								onClick={() => setStand(value)}
 							/>
 						))
 					}
