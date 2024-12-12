@@ -46,3 +46,31 @@ export function sliderValueToRGB(value) {
 }
 
 export function degreesToRadians(degrees) { return degrees * (Math.PI / 180); }
+
+
+export const takeScreenshot = () => {
+  const link = document.createElement('a')
+  link.setAttribute('download', 'lurmis.png')
+  link.setAttribute('href', document.querySelector('canvas').toDataURL('image/png').replace('image/png', 'image/octet-stream'))
+  link.click()
+};
+
+export const openShare = async () => {
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: 'Lurmis - Lamp Configurator',
+        url: 'https://lurmis.vercel.app/',
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+};
+
+export const openEmail = () => {
+  const email = 'lurmis@gmail.com';
+  const subject = 'Lurmis - Lamp Configurator';
+  const body = 'Hello, I would like to know more about Lurmis.';
+  window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
