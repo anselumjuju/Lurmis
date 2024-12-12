@@ -69,7 +69,7 @@ export const openShare = async () => {
 };
 
 export const openEmail = () => {
-  const email = 'lurmis@gmail.com';
+  const email = 'tactizity@gmail.com';
   const subject = 'Lurmis - Lamp Configurator';
   const body = 'Hello, I would like to know more about Lurmis.';
   window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

@@ -15,18 +15,20 @@ const AnimatedText = ({ text, className }) => {
 
 		ScrollTrigger.create({
 			trigger: textRef.current,
-			start: "top bottom",
-			end: "bottom 70%",
+			start: "top 95%",
+			end: "bottom 50%",
 			scrub: true,
 			onUpdate: (self) => {
 				const progress = self.progress * totalChars;
 				chars.forEach((char, index) => {
 					if (index < progress) {
-						char.classList.add("text-neutral-500");
-						char.classList.remove("text-neutral-300");
+						char.style.transform = "translateY(0%)";
+						char.classList.add("text-neutral-600");
+						char.classList.remove("text-neutral-200");
 					} else {
-						char.classList.add("text-neutral-300");
-						char.classList.remove("text-neutral-500");
+						char.style.transform = "translateY(10%)";
+						char.classList.add("text-neutral-200");
+						char.classList.remove("text-neutral-600");
 					}
 				});
 			},
@@ -38,7 +40,7 @@ const AnimatedText = ({ text, className }) => {
 		<div className="overflow-hidden">
 			<div ref={textRef} className={cn("", className)}>
 				{text.split(" ").map((char, index) => (
-					<span key={index} className="char inline-block px-1.5">
+					<span key={index} className="char inline-block px-1.5 transition-all duration-300">
 						{char}
 					</span>
 				))}

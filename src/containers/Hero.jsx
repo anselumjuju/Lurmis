@@ -1,9 +1,30 @@
 import useStore from "@/store/store"
 import { Header, PrimaryButton } from "../components"
 import { ArrowRight } from "lucide-react"
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
 	const { setPage } = useStore();
+	const imageRef = useRef(null)
+	useGSAP(() => {
+		gsap.to(imageRef.current,
+			{
+				scale: 0.95,
+				scrollTrigger: {
+					trigger: imageRef.current,
+					start: 'bottom 95%',
+					end: 'bottom 30%',
+					scrub: true
+				}
+			}
+		)
+	})
+
 	return (
 		<div className="w-full h-screen flex items-center relative">
 			<div className="absolute inset-0 -z-10">
@@ -11,6 +32,7 @@ const Hero = () => {
 					src="/assets/hero-img1.png"
 					alt="image"
 					className="w-full h-full object-cover object-left"
+					ref={imageRef}
 				/>
 			</div>
 			<div className="section h-[90%] pb-10 lg:pb-0 flex flex-col justify-between items-center text-white">
