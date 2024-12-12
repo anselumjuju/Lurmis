@@ -26,6 +26,7 @@
     "init": "^0.1.2",
     "label": "^0.2.2",
     "leva": "^0.9.35",
+    "lodash": "^4.17.21",
     "lucide-react": "^0.468.0",
     "postprocessing": "^6.36.4",
     "react": "^18.3.1",

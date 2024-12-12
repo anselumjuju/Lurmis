@@ -2,15 +2,22 @@ import { useEffect, useState } from "react";
 import { Slider } from "@/components/ui/slider";
 import { cn, sliderValueToRGB } from "@/lib/utils";
 import useStore from "@/store/store";
+import { debounce } from "lodash";
 
 const TempSlider = ({ startIcon: StartIcon, endIcon: EndIcon, className }) => {
 	const { colorTemp, setColorTemp, setLampColor } = useStore();
 	const [value, setValue] = useState([colorTemp]);
 
 	useEffect(() => {
-		setColorTemp(sliderValueToRGB(value[0]));
-		setLampColor(sliderValueToRGB(value[0]))
+		const debouncedUpdate = debounce(() => {
+			setColorTemp(sliderValueToRGB(value[0]));
+			setLampColor(sliderValueToRGB(value[0]));
+		}, 500);
+
+		debouncedUpdate();
+		return () => debouncedUpdate.cancel();
 	}, [value]);
+
 
 	return (
 		<div className={cn("flex items-center gap-3 text-gray", className)}>

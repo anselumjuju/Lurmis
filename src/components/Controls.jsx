@@ -19,9 +19,9 @@ const Controls = () => {
 
 	const colorData = [
 		{ label: 'White', value: 'white', bgColor: 'bg-[#fffeec]' },
-		{ label: 'red', value: 'red', bgColor: 'bg-red-500' },
-		{ label: 'green', value: 'green', bgColor: 'bg-green-500' },
-		{ label: 'blue', value: 'blue', bgColor: 'bg-blue-500' },
+		{ label: 'red', value: '#e6293c', bgColor: 'bg-red-500' },
+		{ label: 'green', value: '#6f6', bgColor: 'bg-green-500' },
+		{ label: 'blue', value: '#87cefb', bgColor: 'bg-blue-500' },
 	]
 
 	const standData = [

@@ -1,4 +1,3 @@
-import { RectAreaLightUniformsLib } from "three/examples/jsm/lights/RectAreaLightUniformsLib.js";
 import { RectAreaLightHelper } from "three/examples/jsm/helpers/RectAreaLightHelper.js";
 import * as THREE from "three";
 import { useThree } from "@react-three/fiber";
@@ -11,7 +10,6 @@ const RectLight = ({ position, color, width, height, showHelper = true }) => {
 	const { lampColor, lampIntensity } = useStore();
 
 	useEffect(() => {
-		RectAreaLightUniformsLib.init();
 		const rectLight = new THREE.RectAreaLight(lampColor, lampIntensity, width, height);
 		rectLight.position.set(position[0], position[1], position[2]);
 		rectLight.rotation.x = -Math.PI / 2;

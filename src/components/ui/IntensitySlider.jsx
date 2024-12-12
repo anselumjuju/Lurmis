@@ -2,14 +2,19 @@ import { useEffect, useState } from "react";
 import { Slider } from "@/components/ui/slider";
 import { cn, sliderValueToRGB } from "@/lib/utils";
 import useStore from "@/store/store";
+import { debounce, update } from "lodash";
 
 const IntensitySlider = ({ startIcon: StartIcon, endIcon: EndIcon, className }) => {
 	const { lampIntensity, setLampIntensity } = useStore();
 	const [value, setValue] = useState([lampIntensity]);
 
 	useEffect(() => {
-		setLampIntensity(value[0])
-		console.log("LampIntensity: ", value[0]);
+		const debouncedUpdate = debounce(() => {
+			setLampIntensity(value[0]);
+		}, 500);
+
+		debouncedUpdate();
+		return () => debouncedUpdate.cancel();
 	}, [value]);
 
 	return (
