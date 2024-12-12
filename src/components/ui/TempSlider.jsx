@@ -12,7 +12,7 @@ const TempSlider = ({ startIcon: StartIcon, endIcon: EndIcon, className }) => {
 		const debouncedUpdate = debounce(() => {
 			setColorTemp(sliderValueToRGB(value[0]));
 			setLampColor(sliderValueToRGB(value[0]));
-		}, 500);
+		}, 200);
 
 		debouncedUpdate();
 		return () => debouncedUpdate.cancel();

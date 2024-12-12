@@ -1,29 +1,33 @@
-import { AccumulativeShadows, Environment, Html, OrbitControls, Plane, PresentationControls, RandomizedLight } from "@react-three/drei"
+import { AccumulativeShadows, Environment, Helper, Html, OrbitControls, Plane, PresentationControls, RandomizedLight } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import Lamp from "./ui/Lamp"
-import { Suspense, useMemo } from "react"
+import { Suspense, useMemo, useRef } from "react"
 import { Bloom, EffectComposer } from "@react-three/postprocessing"
 import { BlendFunction } from "postprocessing"
 import * as THREE from "three"
+import { degreesToRadians } from "@/lib/utils"
 
 const Experience = () => {
+	const ambientLight = useRef();
 	const isMobile = useMemo(() => /Mobi|Android/i.test(navigator.userAgent), []);
 	return (
 		<Canvas gl={{ antialias: false, preserveDrawingBuffer: true }} shadows={!isMobile} dpr={[1, 1.5]} camera={{ position: [4, 8, 6], fov: 35 }}>
 			<Suspense fallback={<Html><div className="w-full h-full flex justify-center items-center">Loading...</div></Html>}>
-				<group position={[0, -1, 0]} scale={0.8}>
+				<ambientLight intensity={isMobile ? 2 : 1} ref={ambientLight} color={'white'} />
+				<Helper position={[0, 0, 0]} args={[ambientLight.current, 2]} />
+				<Plane args={[2000, 2000]} position={[0, -1.74, 0]} receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
+					<meshStandardMaterial color="#A8A8A8" side={THREE.DoubleSide} />
+				</Plane>
+				<group position={[0, -1, 0]} scale={0.7}>
 					<Lamp />
-					<Plane args={[20, 20]} position={[0, -1, 0]} receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
-						<meshStandardMaterial color="#a8a8a8" side={THREE.DoubleSide} />
-					</Plane>
 					<AccumulativeShadows position={[0, -1.043, 0]} temporal frames={100} alphaTest={0.2} scale={7} color="#000">
 						<RandomizedLight position={[2, 5, 5]} intensity={1} amount={5} radius={4} bias={0.001} />
 					</AccumulativeShadows>
 				</group>
 				<OrbitControls
 					makeDefault
-					minPolarAngle={Math.PI / 2.5}
-					maxPolarAngle={Math.PI / 2}
+					minPolarAngle={degreesToRadians(10)}
+					maxPolarAngle={degreesToRadians(71)}
 					autoRotate={!isMobile}
 					autoRotateSpeed={isMobile ? -0.1 : -0.2}
 					dampingFactor={0.05}
@@ -31,7 +35,7 @@ const Experience = () => {
 					enablePan={false}
 				/>
 				<color attach="background" args={['#a8a8a8']} />
-				{/* <Environment preset="studio" background={false} backgroundBlurriness={isMobile ? 0.6 : 0.9} resolution={isMobile ? 64 : 512} lowQuality={isMobile} environmentIntensity={0.7} /> */}
+				{!isMobile && <Environment preset="city" background={false} resolution={512} environmentIntensity={0.7} />}
 				{!isMobile &&
 					<EffectComposer>
 						<Bloom intensity={0.05} luminanceThreshold={0.2} luminanceSmoothing={0.9} blendFunction={BlendFunction.ADD} />

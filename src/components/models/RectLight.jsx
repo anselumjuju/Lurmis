@@ -1,10 +1,9 @@
-import { RectAreaLightHelper } from "three/examples/jsm/helpers/RectAreaLightHelper.js";
 import * as THREE from "three";
 import { useThree } from "@react-three/fiber";
 import { useEffect } from "react";
 import useStore from "@/store/store";
 
-const RectLight = ({ position, color, width, height, showHelper = true }) => {
+const RectLight = ({ position, color, width, height }) => {
 	const { scene } = useThree();
 
 	const { lampColor, lampIntensity } = useStore();
@@ -15,18 +14,9 @@ const RectLight = ({ position, color, width, height, showHelper = true }) => {
 		rectLight.rotation.x = -Math.PI / 2;
 		rectLight.rotation.z = 0.17;
 		scene.add(rectLight);
+		return () => scene.remove(rectLight);
 
-		let helper;
-		if (showHelper) {
-			helper = new RectAreaLightHelper(rectLight);
-			scene.add(helper);
-		}
-
-		return () => {
-			scene.remove(rectLight);
-			if (helper) scene.remove(helper);
-		};
-	}, [scene, position, color, width, height, showHelper]);
+	}, [scene, position, color, width, height]);
 
 	return null;
 };

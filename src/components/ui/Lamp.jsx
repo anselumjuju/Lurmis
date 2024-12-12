@@ -9,7 +9,7 @@ const Lamp = () => {
 			<Light />
 			<Joints />
 			{stand === 'stand1' ? <Stand1 /> : <Stand2 />}
-			{isLightOn && <RectLight position={[2.17, 1.149, -1.1]} color={"#0f0"} width={0.06} height={2.2} showHelper />}
+			{isLightOn && <RectLight position={[1.9, 0.88, -0.95]} color={"#0f0"} width={0.055} height={2} />}
 		</group>
 	)
 }

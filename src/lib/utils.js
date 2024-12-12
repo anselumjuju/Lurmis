@@ -44,3 +44,5 @@ export function sliderValueToRGB(value) {
 
   return `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
 }
+
+export function degreesToRadians(degrees) { return degrees * (Math.PI / 180); }

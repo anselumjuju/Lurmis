@@ -4,12 +4,11 @@ import TempSlider from "./ui/TempSlider"
 import MyToggle from "./ui/MyToggle"
 import RadioItem from "./ui/RadioItem"
 import useStore from "@/store/store";
-import { useEffect } from "react";
 import IntensitySlider from "./ui/IntensitySlider";
 
 const Controls = () => {
 
-	const { material, setMaterial, color, setColor, stand, setStand, lampColor, setLampColor } = useStore()
+	const { material, setMaterial, color, setColor, stand, setStand, setLampColor } = useStore()
 
 	const materialData = [
 		{ label: 'Bleach', value: 'bleach', imgPath: '/assets/bleach.png' },
@@ -28,8 +27,6 @@ const Controls = () => {
 		{ label: 'Stand 1', value: 'stand1', imgPath: '/assets/stand1.png' },
 		{ label: 'Stand 2', value: 'stand2', imgPath: '/assets/stand2.png' },
 	]
-
-	useEffect(() => console.log('LampColor: ', lampColor), [lampColor])
 
 	return (
 		<div className="max-w-xl h-full py-5 space-y-10">
