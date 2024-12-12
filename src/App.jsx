@@ -6,7 +6,7 @@ function App() {
   const { page } = useStore()
   return (
     <div className='w-full h-screen overflow-x-hidden font-figtree'>
-      {page == 'home' ? <Config /> : <Config />}
+      {page == 'home' ? <Home /> : <Config />}
     </div>
   )
 }

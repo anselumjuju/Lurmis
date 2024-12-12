@@ -1,13 +1,15 @@
-import { ThermometerSnowflake, ThermometerSun } from "lucide-react"
+import { Sun, SunDim, ThermometerSnowflake, ThermometerSun } from "lucide-react"
 import { RadioGroup } from "@/components/ui/radio-group";
-import MySlider from "./ui/MySlider"
+import TempSlider from "./ui/TempSlider"
 import MyToggle from "./ui/MyToggle"
 import RadioItem from "./ui/RadioItem"
 import useStore from "@/store/store";
+import { useEffect } from "react";
+import IntensitySlider from "./ui/IntensitySlider";
 
 const Controls = () => {
 
-	const { material, setMaterial, color, setColor, stand, setStand } = useStore()
+	const { material, setMaterial, color, setColor, stand, setStand, lampColor, setLampColor } = useStore()
 
 	const materialData = [
 		{ label: 'Bleach', value: 'bleach', imgPath: '/assets/bleach.png' },
@@ -17,15 +19,17 @@ const Controls = () => {
 
 	const colorData = [
 		{ label: 'White', value: 'white', bgColor: 'bg-[#fffeec]' },
-		{ label: 'red', value: 'red', bgColor: 'bg-red-600' },
-		{ label: 'green', value: 'green', bgColor: 'bg-green-600' },
-		{ label: 'blue', value: 'blue', bgColor: 'bg-blue-600' },
+		{ label: 'red', value: 'red', bgColor: 'bg-red-500' },
+		{ label: 'green', value: 'green', bgColor: 'bg-green-500' },
+		{ label: 'blue', value: 'blue', bgColor: 'bg-blue-500' },
 	]
 
 	const standData = [
 		{ label: 'Stand 1', value: 'stand1', imgPath: '/assets/stand1.png' },
 		{ label: 'Stand 2', value: 'stand2', imgPath: '/assets/stand2.png' },
 	]
+
+	useEffect(() => console.log('LampColor: ', lampColor), [lampColor])
 
 	return (
 		<div className="max-w-xl h-full py-5 space-y-10">
@@ -59,7 +63,7 @@ const Controls = () => {
 									label={label}
 									bgColor={bgColor}
 									isSelected={value === color}
-									onClick={() => setColor(value)}
+									onClick={() => { setColor(value); setLampColor(value) }}
 								/>
 							))
 					}
@@ -67,7 +71,11 @@ const Controls = () => {
 			</div>
 			<div className="space-y-4">
 				<p className="text-md uppercase text-semibold">Color Temperature</p>
-				<MySlider className={'max-w-xs'} startIcon={ThermometerSun} endIcon={ThermometerSnowflake} />
+				<TempSlider className={'max-w-xs'} startIcon={ThermometerSun} endIcon={ThermometerSnowflake} />
+			</div>
+			<div className="space-y-4">
+				<p className="text-md uppercase text-semibold">Light Intensity</p>
+				<IntensitySlider className={'max-w-xs'} startIcon={SunDim} endIcon={Sun} />
 			</div>
 			<div className="space-y-4">
 				<p className="text-md uppercase text-semibold">RGB Color</p>
@@ -80,7 +88,7 @@ const Controls = () => {
 								label={label}
 								bgColor={bgColor}
 								isSelected={value === color}
-								onClick={() => setColor(value)}
+								onClick={() => { setColor(value); setLampColor(value) }}
 							/>
 						))
 					}

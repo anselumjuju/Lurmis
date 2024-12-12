@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { Slider } from "@/components/ui/slider";
-import { cn } from "@/lib/utils";
+import { cn, sliderValueToRGB } from "@/lib/utils";
 import useStore from "@/store/store";
 
-const MySlider = ({ startIcon: StartIcon, endIcon: EndIcon, className }) => {
-	const { colorTemp, setColorTemp } = useStore();
+const TempSlider = ({ startIcon: StartIcon, endIcon: EndIcon, className }) => {
+	const { colorTemp, setColorTemp, setLampColor } = useStore();
 	const [value, setValue] = useState([colorTemp]);
 
 	useEffect(() => {
-		setColorTemp(value[0]);
+		setColorTemp(sliderValueToRGB(value[0]));
+		setLampColor(sliderValueToRGB(value[0]))
 	}, [value]);
 
 	return (
@@ -20,4 +21,4 @@ const MySlider = ({ startIcon: StartIcon, endIcon: EndIcon, className }) => {
 	);
 }
 
-export default MySlider
+export default TempSlider
