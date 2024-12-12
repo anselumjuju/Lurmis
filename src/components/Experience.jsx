@@ -11,7 +11,7 @@ const Experience = () => {
 	const ambientLight = useRef();
 	const isMobile = useMemo(() => /Mobi|Android/i.test(navigator.userAgent), []);
 	return (
-		<Canvas gl={{ antialias: false, preserveDrawingBuffer: true }} shadows={!isMobile} dpr={[1, 1.5]} camera={{ position: [4, 8, 6], fov: 35 }}>
+		<Canvas gl={{ antialias: false, preserveDrawingBuffer: true }} shadows={!isMobile} dpr={[1, 1.5]} camera={{ position: [9, 1, 8], fov: 35 }}>
 			<Suspense fallback={<Html><div className="w-full h-full flex justify-center items-center">Loading...</div></Html>}>
 				<ambientLight intensity={isMobile ? 2 : 1} ref={ambientLight} color={'white'} />
 				<Helper position={[0, 0, 0]} args={[ambientLight.current, 2]} />
@@ -28,8 +28,6 @@ const Experience = () => {
 					makeDefault
 					minPolarAngle={degreesToRadians(10)}
 					maxPolarAngle={degreesToRadians(71)}
-					autoRotate={!isMobile}
-					autoRotateSpeed={isMobile ? -0.1 : -0.2}
 					dampingFactor={0.05}
 					enableZoom={false}
 					enablePan={false}
@@ -46,3 +44,6 @@ const Experience = () => {
 }
 
 export default Experience
+
+// autoRotate
+// autoRotateSpeed = {- 0.2}
