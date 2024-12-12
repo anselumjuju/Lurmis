@@ -26,6 +26,8 @@ const Experience = () => {
 				</group>
 				<OrbitControls
 					makeDefault
+					autoRotate
+					autoRotateSpeed={- 0.2}
 					minPolarAngle={degreesToRadians(10)}
 					maxPolarAngle={degreesToRadians(71)}
 					dampingFactor={0.05}
@@ -44,6 +46,3 @@ const Experience = () => {
 }
 
 export default Experience
-
-// autoRotate
-// autoRotateSpeed = {- 0.2}
