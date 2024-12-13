@@ -6,7 +6,7 @@ import gsap from "gsap"
 import { useRef } from "react"
 
 const Section3 = () => {
-	const { setPage } = useStore()
+	const { setPage, isEnglish } = useStore()
 	const textRef = useRef();
 
 	useGSAP(() => {
@@ -26,7 +26,7 @@ const Section3 = () => {
 
 	return (
 		<div className="section h-full space-y-12">
-			<AnimatedText className="max-w-[1000px] text-2xl md:text-3xl lg:text-4xl font-aboreto text-left" text={getTranslation('section3.title')} />
+			<AnimatedText className="max-w-[1000px] text-2xl md:text-3xl lg:text-4xl font-aboreto text-left" text={getTranslation(isEnglish, 'section3.title')} />
 			<div className="w-full h-max flex flex-col lg:flex-row items-end justify-between gap-4">
 
 				<div className="w-full h-[40vh] flex gap-4 items-end">
@@ -35,7 +35,7 @@ const Section3 = () => {
 				</div>
 
 				<div className="w-full h-[40vh] lg:h-[50vh] flex items-start lg:items-end gap-4">
-					<p className="w-[60%] text-right lg:text-left cursor-pointer text-sm lg:text-md" onClick={() => setPage('config')} ref={textRef}>{getTranslation('section3.cta')}</p>
+					<p className="w-[60%] text-right lg:text-left cursor-pointer text-sm lg:text-md" onClick={() => setPage('config')} ref={textRef}>{getTranslation(isEnglish, 'section3.cta')}</p>
 					<Image src="/assets/sec1-img3.webp" alt="img" imgClassName="object-top" />
 				</div>
 

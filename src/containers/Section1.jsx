@@ -1,16 +1,20 @@
 import { AnimatedText, Image } from "@/components"
 import { getTranslation } from "@/lib/utils"
+import useStore from "@/store/store";
 
 const Section1 = () => {
+
+	const { isEnglish } = useStore();
+
 	const galleryData = [
-		{ imgPath: '/assets/sec1-img1.webp', title: getTranslation('section1.caption1'), },
-		{ imgPath: '/assets/sec1-img3.webp', title: getTranslation('section1.caption2'), },
-		{ imgPath: '/assets/sec1-img2.webp', title: getTranslation('section1.caption3'), },
+		{ imgPath: '/assets/sec1-img1.webp', title: getTranslation(isEnglish, 'section1.caption1'), },
+		{ imgPath: '/assets/sec1-img3.webp', title: getTranslation(isEnglish, 'section1.caption2'), },
+		{ imgPath: '/assets/sec1-img2.webp', title: getTranslation(isEnglish, 'section1.caption3'), },
 	]
 
 	return (
 		<div className="section space-y-12">
-			<AnimatedText className="text-2xl md:text-3xl lg:text-4xl font-aboreto" text={getTranslation('section1.title')} />
+			<AnimatedText className="text-2xl md:text-3xl lg:text-4xl font-aboreto" text={getTranslation(isEnglish, 'section1.title')} />
 			<div className="w-full flex flex-col sm:flex-row gap-6">
 				{
 					galleryData.map(({ imgPath, title }) => (
