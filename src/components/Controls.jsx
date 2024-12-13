@@ -11,9 +11,9 @@ const Controls = () => {
 	const { material, setMaterial, color, setColor, stand, setStand, setLampColor } = useStore()
 
 	const materialData = [
-		{ label: 'Bleach', value: 'bleach', imgPath: '/assets/bleach.png' },
-		{ label: 'Oak', value: 'oak', imgPath: '/assets/oak.png' },
-		{ label: 'Wal', value: 'wal', imgPath: '/assets/walnut.png' },
+		{ label: 'Bleach', value: 'bleach', imgPath: '/assets/bleach.webp' },
+		{ label: 'Oak', value: 'oak', imgPath: '/assets/oak.webp' },
+		{ label: 'Wal', value: 'wal', imgPath: '/assets/walnut.webp' },
 	]
 
 	const colorData = [
@@ -24,8 +24,8 @@ const Controls = () => {
 	]
 
 	const standData = [
-		{ label: 'Stand 1', value: 'stand1', imgPath: '/assets/stand1.png' },
-		{ label: 'Stand 2', value: 'stand2', imgPath: '/assets/stand2.png' },
+		{ label: 'Stand 1', value: 'stand1', imgPath: '/assets/stand1.webp' },
+		{ label: 'Stand 2', value: 'stand2', imgPath: '/assets/stand2.webp' },
 	]
 
 	return (

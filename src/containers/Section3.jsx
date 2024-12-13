@@ -29,13 +29,13 @@ const Section3 = () => {
 			<div className="w-full h-max flex flex-col lg:flex-row items-end justify-between gap-4">
 
 				<div className="w-full h-[40vh] flex gap-4 items-end">
-					<Image src="/assets/sec3-img1.png" alt="img" className="lg:h-[90%]" imgClassName="object-top" />
-					<Image src="/assets/sec2-img2.png" alt="img" className="w-[45%] h-[60%] lg:h-[50%]" imgClassName="object-top" />
+					<Image src="/assets/sec3-img1.webp" alt="img" className="lg:h-[90%]" imgClassName="object-top" />
+					<Image src="/assets/sec2-img2.webp" alt="img" className="w-[45%] h-[60%] lg:h-[50%]" imgClassName="object-top" />
 				</div>
 
 				<div className="w-full h-[40vh] lg:h-[50vh] flex items-start lg:items-end gap-4">
 					<p className="w-[60%] text-right lg:text-left cursor-pointer text-sm lg:text-md" onClick={() => setPage('config')} ref={textRef}>Configure Now</p>
-					<Image src="/assets/sec1-img3.png" alt="img" imgClassName="object-top" />
+					<Image src="/assets/sec1-img3.webp" alt="img" imgClassName="object-top" />
 				</div>
 
 			</div>

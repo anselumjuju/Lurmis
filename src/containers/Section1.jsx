@@ -2,9 +2,9 @@ import { AnimatedText, Image } from "@/components"
 
 const Section1 = () => {
 	const galleryData = [
-		{ imgPath: '/assets/sec1-img1.png', title: 'Effortless Elegance', },
-		{ imgPath: '/assets/sec1-img3.png', title: 'Personalized Ambiance', },
-		{ imgPath: '/assets/sec1-img2.png', title: 'Thoughtful Design', }
+		{ imgPath: '/assets/sec1-img1.webp', title: 'Effortless Elegance', },
+		{ imgPath: '/assets/sec1-img3.webp', title: 'Personalized Ambiance', },
+		{ imgPath: '/assets/sec1-img2.webp', title: 'Thoughtful Design', }
 	]
 
 	return (
