@@ -12,7 +12,7 @@ const Experience = () => {
 	const isMobile = useMemo(() => /Mobi|Android/i.test(navigator.userAgent), []);
 	return (
 		<Canvas gl={{ antialias: false, preserveDrawingBuffer: true }} shadows={!isMobile} dpr={[1, 1.5]} camera={{ position: [9, 1, 8], fov: 35 }}>
-			<Suspense fallback={<Html><div className="w-full h-full flex justify-center items-center">Loading...</div></Html>}>
+			<Suspense fallback={null}>
 				<ambientLight intensity={isMobile ? 2 : 1} ref={ambientLight} color={'white'} />
 				<Helper position={[0, 0, 0]} args={[ambientLight.current, 2]} />
 				<Plane args={[2000, 2000]} position={[0, -1.74, 0]} receiveShadow rotation={[-Math.PI / 2, 0, 0]}>

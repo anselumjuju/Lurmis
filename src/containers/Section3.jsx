@@ -1,8 +1,28 @@
 import { AnimatedText, Image } from "@/components"
 import useStore from "@/store/store"
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
+import { useRef } from "react"
 
 const Section3 = () => {
 	const { setPage } = useStore()
+	const textRef = useRef();
+
+	useGSAP(() => {
+		gsap.fromTo(textRef.current,
+			{ y: '100%', opacity: 0, scaleY: 1.3 },
+			{
+				y: 0, opacity: 1, scale: 1, ease: 'power2.out',
+				scrollTrigger: {
+					trigger: textRef.current,
+					start: 'top bottom',
+					end: 'bottom 50%',
+					scrub: true,
+				}
+			}
+		)
+	})
+
 	return (
 		<div className="section h-full space-y-12">
 			<AnimatedText className="max-w-[1000px] text-2xl md:text-3xl lg:text-4xl font-aboreto text-left" text="Create your ideal lamp tailored to your space with the lurmis configurator" />
@@ -14,9 +34,7 @@ const Section3 = () => {
 				</div>
 
 				<div className="w-full h-[40vh] lg:h-[50vh] flex items-start lg:items-end gap-4">
-					<p className="w-[60%] text-right lg:text-left cursor-pointer text-sm lg:text-md" onClick={() => setPage('config')}>
-						<span className="relative after:content-[''] after:h-[1px] after:absolute after:right-0 after:-bottom-[2px] after:bg-gray after:w-[0%] hover:after:w-[80%] transition-all duration-300">Configure Now</span>
-					</p>
+					<p className="w-[60%] text-right lg:text-left cursor-pointer text-sm lg:text-md" onClick={() => setPage('config')} ref={textRef}>Configure Now</p>
 					<Image src="/assets/sec1-img3.png" alt="img" imgClassName="object-top" />
 				</div>
 

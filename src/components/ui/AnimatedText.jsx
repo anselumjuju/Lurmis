@@ -26,7 +26,7 @@ const AnimatedText = ({ text, className }) => {
 						char.classList.add("text-neutral-600");
 						char.classList.remove("text-neutral-200");
 					} else {
-						char.style.transform = "translateY(10%)";
+						char.style.transform = "translateY(5%)";
 						char.classList.add("text-neutral-200");
 						char.classList.remove("text-neutral-600");
 					}
