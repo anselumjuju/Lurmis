@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
+import { getTranslation } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,7 +40,7 @@ const Hero = () => {
 				<Header />
 				<div className="w-full flex flex-col gap-y-8 items-center justify-center text-center">
 					<p className="text-sm lg:text-xl uppercase">Illuminate your Moments</p>
-					<p className="text-3xl md:text-4xl lg:text-5xl font-aboreto">Bright Ideas. Warm Light.<br className="hidden md:block" /> Perfect Moments</p>
+					<p className="max-w-[800px] text-3xl md:text-4xl lg:text-5xl font-aboreto">Bright Ideas. Warm Light. Perfect Moments</p>
 					<PrimaryButton text='3D Configurator' endIcon={ArrowRight} onClick={() => { setPage("config") }} className={'px-4 py-3 md:px-6'} isResponsive={false} />
 				</div>
 			</div>

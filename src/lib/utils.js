@@ -1,5 +1,7 @@
+import useStore from "@/store/store";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge"
+import translations from '../lib/translations.json'
 
 export function cn(...inputs) {
   return twMerge(clsx(inputs));
@@ -73,4 +75,10 @@ export const openEmail = () => {
   const subject = 'Lurmis - Lamp Configurator';
   const body = 'Hello, I would like to know more about Lurmis.';
   window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+export const getTranslation = (keyPath) => {
+  const { isEnglish } = useStore();
+  const language = isEnglish ? 'en' : 'es';
+  return keyPath.split('.').reduce((obj, key) => obj[key], translations[language]);
 }

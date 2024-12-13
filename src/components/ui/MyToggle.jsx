@@ -2,7 +2,7 @@ import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
-const MyToggle = ({ startIcon: StartIcon, endIcon: EndIcon, initialValue, toggleFunc, className }) => {
+const MyToggle = ({ startIcon: StartIcon, endIcon: EndIcon, startText: StartText, endText: EndText, initialValue, toggleFunc, className }) => {
 
 	const [checked, setChecked] = useState(initialValue);
 
@@ -22,7 +22,8 @@ const MyToggle = ({ startIcon: StartIcon, endIcon: EndIcon, initialValue, toggle
 				className=" cursor-pointer text-right text-sm font-medium group-data-[state=checked]:text-muted-foreground/70"
 				onClick={() => setChecked(false)}
 			>
-				<StartIcon className="w-6 opacity-60" />
+				{StartIcon && <StartIcon className="w-6 opacity-60" />}
+				{StartText && <span className="">{StartText}</span>}
 			</span>
 			<Switch
 				checked={checked}
@@ -33,7 +34,8 @@ const MyToggle = ({ startIcon: StartIcon, endIcon: EndIcon, initialValue, toggle
 				className="cursor-pointer text-left text-sm font-medium group-data-[state=unchecked]:text-muted-foreground/70"
 				onClick={() => setChecked(true)}
 			>
-				<EndIcon className="w-6 opacity-60" />
+				{EndIcon && <EndIcon className="w-6 opacity-60" />}
+				{EndText && <span className="">{EndText}</span>}
 			</span>
 		</div>
 	);

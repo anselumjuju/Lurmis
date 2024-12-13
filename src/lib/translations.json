@@ -1,0 +1,128 @@
+{
+  "en": {
+    "hero": {
+      "title": "Bright ideas. Warm Light. Perfect Moments.",
+      "subtitle": "Illuminate your moments",
+      "button": "3D Configurator"
+    },
+    "section1": {
+      "title": "Why you'll love this",
+      "caption1": "Effortless Elegance",
+      "caption2": "Personalized Ambiance",
+      "caption3": "Thoughtful Design"
+    },
+    "section2": {
+      "title": "Design your perfect lamp for your space with the lurmis configurator"
+    },
+    "section3": {
+      "title": "Create your ideal lamp tailored to your space with the lurmis configurator",
+      "cta": "Configure Now"
+    },
+    "footer": {
+      "caption": "At Lurmi, we design and create high-quality lamps that seamlessly complement every home style. No individual sales.",
+      "contact": "Contact",
+      "copyright": "© 2024 - Lurmis collection | All rights reserved"
+    },
+    "Config": {
+      "material": {
+        "title": "Material",
+        "bleach": "Bleach",
+        "oak": "Oak",
+        "walnut": "Walnut"
+      },
+      "whiteColor": {
+        "title": "White Color",
+        "white": "White"
+      },
+      "rgbColor": {
+        "title": "RGB Color",
+        "red": "Red",
+        "green": "Green",
+        "blue": "Blue"
+      },
+      "colorTemperature": {
+        "title": "Color Temperature"
+      },
+      "lightIntensity": {
+        "title": "Light Intensity"
+      },
+      "baseTypes": {
+        "title": "Base Types",
+        "base1": "Base 1",
+        "base2": "Base 2"
+      },
+      "turnOnOff": {
+        "title": "Turn On/Off"
+      },
+      "buttons": {
+        "back": "Back",
+        "contact": "Contact",
+        "share": "Share",
+        "download": "Download"
+      }
+    }
+  },
+  "es": {
+    "hero": {
+      "title": "Ideas brillantes. Luz cálida. Momentos perfectos.",
+      "subtitle": "Ilumina tus momentos",
+      "button": "Configurator 3D"
+    },
+    "section1": {
+      "title": "Por qué te encantará esto",
+      "caption1": "Elegancia sin esfuerzo",
+      "caption2": "Ambiente personalizado",
+      "caption3": "Diseño reflexivo"
+    },
+    "section2": {
+      "title": "Diseña tu lámpara perfecta para tu espacio con el configurador Lurmis"
+    },
+    "section3": {
+      "title": "Crea tu lámpara ideal adaptada a tu espacio con el configurador Lurmis",
+      "cta": "Configura ahora"
+    },
+    "footer": {
+      "caption": "En Lurmi, diseñamos y creamos lámparas de alta calidad que complementan a la perfección todos los estilos de hogar. No se venden de forma individual.",
+      "contact": "Contacto",
+      "copyright": "© 2024 - Colección Lurmis | Todos los derechos reservados"
+    },
+    "Config": {
+      "material": {
+        "title": "Material",
+        "bleach": "Blanco",
+        "oak": "Roble",
+        "walnut": "Nuez"
+      },
+      "whiteColor": {
+        "title": "Color Blanco",
+        "white": "Blanco"
+      },
+      "rgbColor": {
+        "title": "Color RGB",
+        "red": "Rojo",
+        "green": "Verde",
+        "blue": "Azul"
+      },
+      "colorTemperature": {
+        "title": "Temperatura del color"
+      },
+      "lightIntensity": {
+        "title": "Intensidad de la luz"
+      },
+      "baseTypes": {
+        "title": "Tipos de base",
+        "base1": "Base 1",
+        "base2": "Base 2"
+      },
+      "turnOnOff": {
+        "title": "Encender/Apagar"
+      },
+      "buttons": {
+        "back": "Volver",
+        "contact": "Contacto",
+        "share": "Compartir",
+        "download": "Descargar"
+      }
+    }
+  }
+}

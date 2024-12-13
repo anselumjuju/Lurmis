@@ -18,7 +18,9 @@ const useStore = create(set => ({
 	isLightOn: true,
 	setIsLightOn: (isLightOn) => set(() => ({ isLightOn })),
 	stand: 'stand1',
-	setStand: (stand) => set(() => ({ stand }))
+	setStand: (stand) => set(() => ({ stand })),
+	isEnglish: true,
+	setIsEnglish: (isEnglish) => set(() => ({ isEnglish }))
 }))
 
 export default useStore
