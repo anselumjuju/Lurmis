@@ -1,5 +1,7 @@
 # Lamp Configurator
 
+![lamp-configurator](https://github.com/user-attachments/assets/879430b7-8731-4d4b-bd7d-b468a4ab5bc6)
+
 This is a customizable lamp configurator built for Lurmi, allowing users to design and personalize their desk lamp according to their preferences.
 
 ## Features:
