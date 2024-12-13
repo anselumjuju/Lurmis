@@ -22,14 +22,12 @@ function App() {
   }, [page]);
 
   return (
-    <Lenis>
-      <div className="w-full overflow-hidden font-figtree">
-        <div className="absolute top-0 left-0 w-full h-screen z-50 bg-white flex items-center justify-center overflow-hidden" ref={overlayRef}><span className='overflow-hidden'><Logo className={'fill-gray logo'} /></span></div>
-        <div className="w-full overflow-x-hidden" ref={pageRef}>
-          {currentPage === 'home' ? <Home /> : <Config />}
-        </div>
+    <div className="w-full overflow-hidden font-figtree">
+      <div className="absolute top-0 left-0 w-full h-screen z-50 bg-white flex items-center justify-center overflow-hidden" ref={overlayRef}><span className='overflow-hidden'><Logo className={'fill-gray logo'} /></span></div>
+      <div className="w-full overflow-x-hidden" ref={pageRef}>
+        {currentPage === 'home' ? <Lenis><Home /></Lenis> : <Config />}
       </div>
-    </Lenis>
+    </div>
   );
 }
 
