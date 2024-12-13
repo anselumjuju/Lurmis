@@ -1,15 +1,13 @@
 import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
-import useStore from "@/store/store";
-import { Lightbulb, LightbulbOff } from "lucide-react";
 import { useEffect, useState } from "react";
 
-const MyToggle = ({ className }) => {
-	const { isLightOn, setIsLightOn } = useStore();
-	const [checked, setChecked] = useState(isLightOn);
+const MyToggle = ({ startIcon: StartIcon, endIcon: EndIcon, initialValue, toggleFunc, className }) => {
+
+	const [checked, setChecked] = useState(initialValue);
 
 	useEffect(() => {
-		setIsLightOn(checked);
+		toggleFunc(checked);
 	}, [checked]);
 
 	const toggleSwitch = () => setChecked((prev) => !prev);
@@ -24,7 +22,7 @@ const MyToggle = ({ className }) => {
 				className=" cursor-pointer text-right text-sm font-medium group-data-[state=checked]:text-muted-foreground/70"
 				onClick={() => setChecked(false)}
 			>
-				<LightbulbOff className="w-6 opacity-60" />
+				<StartIcon className="w-6 opacity-60" />
 			</span>
 			<Switch
 				checked={checked}
@@ -35,7 +33,7 @@ const MyToggle = ({ className }) => {
 				className="cursor-pointer text-left text-sm font-medium group-data-[state=unchecked]:text-muted-foreground/70"
 				onClick={() => setChecked(true)}
 			>
-				<Lightbulb className="w-6 opacity-60" />
+				<EndIcon className="w-6 opacity-60" />
 			</span>
 		</div>
 	);

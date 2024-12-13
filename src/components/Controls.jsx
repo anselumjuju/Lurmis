@@ -1,4 +1,4 @@
-import { Sun, SunDim, ThermometerSnowflake, ThermometerSun } from "lucide-react"
+import { Lightbulb, LightbulbOff, Sun, SunDim, ThermometerSnowflake, ThermometerSun } from "lucide-react"
 import { RadioGroup } from "@/components/ui/radio-group";
 import TempSlider from "./ui/TempSlider"
 import MyToggle from "./ui/MyToggle"
@@ -8,7 +8,7 @@ import IntensitySlider from "./ui/IntensitySlider";
 
 const Controls = () => {
 
-	const { material, setMaterial, color, setColor, stand, setStand, setLampColor } = useStore()
+	const { material, setMaterial, color, setColor, stand, setStand, setLampColor, isLightOn, setIsLightOn } = useStore()
 
 	const materialData = [
 		{ label: 'Bleach', value: 'bleach', imgPath: '/assets/bleach.webp' },
@@ -110,7 +110,7 @@ const Controls = () => {
 			</div>
 			<div className="space-y-4">
 				<p className="text-md uppercase text-semibold">Turn ON/OFF</p>
-				<MyToggle />
+				<MyToggle startIcon={Lightbulb} endIcon={LightbulbOff} initialValue={isLightOn} toggleFunc={setIsLightOn} />
 			</div>
 		</div>
 	)
