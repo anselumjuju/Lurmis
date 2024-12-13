@@ -5,33 +5,34 @@ import MyToggle from "./ui/MyToggle"
 import RadioItem from "./ui/RadioItem"
 import useStore from "@/store/store";
 import IntensitySlider from "./ui/IntensitySlider";
+import { getTranslation } from "@/lib/utils";
 
 const Controls = () => {
 
 	const { material, setMaterial, color, setColor, stand, setStand, setLampColor, isLightOn, setIsLightOn } = useStore()
 
 	const materialData = [
-		{ label: 'Bleach', value: 'bleach', imgPath: '/assets/bleach.webp' },
-		{ label: 'Oak', value: 'oak', imgPath: '/assets/oak.webp' },
-		{ label: 'Wal', value: 'wal', imgPath: '/assets/walnut.webp' },
+		{ label: getTranslation('config.material.bleach'), value: 'bleach', imgPath: '/assets/bleach.webp' },
+		{ label: getTranslation('config.material.oak'), value: 'oak', imgPath: '/assets/oak.webp' },
+		{ label: getTranslation('config.material.walnut'), value: 'wal', imgPath: '/assets/walnut.webp' },
 	]
 
 	const colorData = [
-		{ label: 'White', value: 'white', bgColor: 'bg-[#fffeec]' },
-		{ label: 'red', value: '#e6293c', bgColor: 'bg-red-500' },
-		{ label: 'green', value: '#6f6', bgColor: 'bg-green-500' },
-		{ label: 'blue', value: '#87cefb', bgColor: 'bg-blue-500' },
+		{ label: getTranslation('config.whiteColor.white'), value: 'white', bgColor: 'bg-[#fffeec]' },
+		{ label: getTranslation('config.rgbColor.red'), value: '#e6293c', bgColor: 'bg-red-500' },
+		{ label: getTranslation('config.rgbColor.green'), value: '#6f6', bgColor: 'bg-green-500' },
+		{ label: getTranslation('config.rgbColor.blue'), value: '#87cefb', bgColor: 'bg-blue-500' },
 	]
 
 	const standData = [
-		{ label: 'Stand 1', value: 'stand1', imgPath: '/assets/stand1.webp' },
-		{ label: 'Stand 2', value: 'stand2', imgPath: '/assets/stand2.webp' },
+		{ label: getTranslation('config.baseTypes.base1'), value: 'stand1', imgPath: '/assets/stand1.webp' },
+		{ label: getTranslation('config.baseTypes.base2'), value: 'stand2', imgPath: '/assets/stand2.webp' },
 	]
 
 	return (
 		<div className="max-w-xl h-full py-5 space-y-10">
 			<div className="space-y-4">
-				<p className="text-md uppercase text-semibold">Lamp Material</p>
+				<p className="text-md uppercase text-semibold">{getTranslation('config.material.title')}</p>
 				<RadioGroup className="grid-cols-3 sm:grid-cols-5 lg:grid-cols-4 gap-4" defaultValue="cc">
 					{
 						materialData.map(({ label, value, imgPath }) => (
@@ -48,7 +49,7 @@ const Controls = () => {
 				</RadioGroup>
 			</div>
 			<div className="space-y-4">
-				<p className="text-md uppercase text-semibold">White Color</p>
+				<p className="text-md uppercase text-semibold">{getTranslation('config.whiteColor.title')}</p>
 				<RadioGroup className="grid-cols-3 sm:grid-cols-5 lg:grid-cols-4 gap-4" defaultValue="cc">
 					{
 						colorData
@@ -67,15 +68,15 @@ const Controls = () => {
 				</RadioGroup>
 			</div>
 			<div className="space-y-4">
-				<p className="text-md uppercase text-semibold">Color Temperature</p>
+				<p className="text-md uppercase text-semibold">{getTranslation('config.colorTemperature')}</p>
 				<TempSlider className={'max-w-xs'} startIcon={ThermometerSun} endIcon={ThermometerSnowflake} />
 			</div>
 			<div className="space-y-4">
-				<p className="text-md uppercase text-semibold">Light Intensity</p>
+				<p className="text-md uppercase text-semibold">{getTranslation('config.lightIntensity')}</p>
 				<IntensitySlider className={'max-w-xs'} startIcon={SunDim} endIcon={Sun} />
 			</div>
 			<div className="space-y-4">
-				<p className="text-md uppercase text-semibold">RGB Color</p>
+				<p className="text-md uppercase text-semibold">{getTranslation('config.rgbColor.title')}</p>
 				<RadioGroup className="grid-cols-3 sm:grid-cols-5 lg:grid-cols-4 gap-4" defaultValue="cc">
 					{
 						colorData.splice(1, colorData.length).map(({ label, value, bgColor }) => (
@@ -92,7 +93,7 @@ const Controls = () => {
 				</RadioGroup>
 			</div>
 			<div className="space-y-4">
-				<p className="text-md uppercase text-semibold">Base Types</p>
+				<p className="text-md uppercase text-semibold">{getTranslation('config.baseTypes.title')}</p>
 				<RadioGroup className="grid-cols-3 sm:grid-cols-5 lg:grid-cols-4 gap-4" defaultValue="cc">
 					{
 						standData.map(({ label, value, imgPath }) => (
@@ -109,7 +110,7 @@ const Controls = () => {
 				</RadioGroup>
 			</div>
 			<div className="space-y-4">
-				<p className="text-md uppercase text-semibold">Turn ON/OFF</p>
+				<p className="text-md uppercase text-semibold">{getTranslation('config.turnOnOff')}</p>
 				<MyToggle startIcon={Lightbulb} endIcon={LightbulbOff} initialValue={isLightOn} toggleFunc={setIsLightOn} />
 			</div>
 		</div>

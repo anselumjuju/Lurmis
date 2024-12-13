@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
 	const { setPage } = useStore();
-	const imageRef = useRef(null)
+	const imageRef = useRef(null);
 	useGSAP(() => {
 		gsap.to(imageRef.current,
 			{
@@ -39,9 +39,9 @@ const Hero = () => {
 			<div className="section h-[90%] pb-10 lg:pb-0 flex flex-col justify-between items-center text-white">
 				<Header />
 				<div className="w-full flex flex-col gap-y-8 items-center justify-center text-center">
-					<p className="text-sm lg:text-xl uppercase">Illuminate your Moments</p>
-					<p className="max-w-[800px] text-3xl md:text-4xl lg:text-5xl font-aboreto">Bright Ideas. Warm Light. Perfect Moments</p>
-					<PrimaryButton text='3D Configurator' endIcon={ArrowRight} onClick={() => { setPage("config") }} className={'px-4 py-3 md:px-6'} isResponsive={false} />
+					<p className="text-sm lg:text-xl uppercase">{getTranslation("hero.subtitle")}</p>
+					<p className="max-w-[800px] text-3xl md:text-4xl lg:text-5xl font-aboreto">{getTranslation("hero.title")}</p>
+					<PrimaryButton text={getTranslation("hero.button")} endIcon={ArrowRight} onClick={() => { setPage("config") }} className={'px-4 py-3 md:px-6'} isResponsive={false} />
 				</div>
 			</div>
 		</div>

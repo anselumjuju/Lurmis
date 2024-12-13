@@ -1,15 +1,16 @@
 import { AnimatedText, Image } from "@/components"
+import { getTranslation } from "@/lib/utils"
 
 const Section1 = () => {
 	const galleryData = [
-		{ imgPath: '/assets/sec1-img1.webp', title: 'Effortless Elegance', },
-		{ imgPath: '/assets/sec1-img3.webp', title: 'Personalized Ambiance', },
-		{ imgPath: '/assets/sec1-img2.webp', title: 'Thoughtful Design', }
+		{ imgPath: '/assets/sec1-img1.webp', title: getTranslation('section1.caption1'), },
+		{ imgPath: '/assets/sec1-img3.webp', title: getTranslation('section1.caption2'), },
+		{ imgPath: '/assets/sec1-img2.webp', title: getTranslation('section1.caption3'), },
 	]
 
 	return (
 		<div className="section space-y-12">
-			<AnimatedText className="text-2xl md:text-3xl lg:text-4xl font-aboreto" text="WHY YOU'LL LOVE THIS" />
+			<AnimatedText className="text-2xl md:text-3xl lg:text-4xl font-aboreto" text={getTranslation('section1.title')} />
 			<div className="w-full flex flex-col sm:flex-row gap-6">
 				{
 					galleryData.map(({ imgPath, title }) => (

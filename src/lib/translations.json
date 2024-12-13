@@ -19,11 +19,11 @@
       "cta": "Configure Now"
     },
     "footer": {
-      "caption": "At Lurmi, we design and create high-quality lamps that seamlessly complement every home style. No individual sales.",
+      "caption": "At Lurmi, we design and create high quality lamps that seamlessly complement every home style. No individual sales.",
       "contact": "Contact",
       "copyright": "© 2024 - Lurmis collection | All rights reserved"
     },
-    "Config": {
+    "config": {
       "material": {
         "title": "Material",
         "bleach": "Bleach",
@@ -40,20 +40,14 @@
         "green": "Green",
         "blue": "Blue"
       },
-      "colorTemperature": {
-        "title": "Color Temperature"
-      },
-      "lightIntensity": {
-        "title": "Light Intensity"
-      },
       "baseTypes": {
         "title": "Base Types",
         "base1": "Base 1",
         "base2": "Base 2"
       },
-      "turnOnOff": {
-        "title": "Turn On/Off"
-      },
+      "colorTemperature": "Color Temperature",
+      "lightIntensity": "Light Intensity",
+      "turnOnOff": "Turn On/Off",
       "buttons": {
         "back": "Back",
         "contact": "Contact",
@@ -86,7 +80,7 @@
       "contact": "Contacto",
       "copyright": "© 2024 - Colección Lurmis | Todos los derechos reservados"
     },
-    "Config": {
+    "config": {
       "material": {
         "title": "Material",
         "bleach": "Blanco",
@@ -103,20 +97,14 @@
         "green": "Verde",
         "blue": "Azul"
       },
-      "colorTemperature": {
-        "title": "Temperatura del color"
-      },
-      "lightIntensity": {
-        "title": "Intensidad de la luz"
-      },
       "baseTypes": {
         "title": "Tipos de base",
         "base1": "Base 1",
         "base2": "Base 2"
       },
-      "turnOnOff": {
-        "title": "Encender/Apagar"
-      },
+      "colorTemperature": "Temperatura del color",
+      "lightIntensity": "Intensidad de la luz",
+      "turnOnOff": "Encender/Apagar",
       "buttons": {
         "back": "Volver",
         "contact": "Contacto",
