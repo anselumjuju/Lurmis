@@ -12,10 +12,23 @@ gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
 	const { setPage } = useStore();
 	const imageRef = useRef(null);
+	const imageContRef = useRef(null);
 	useGSAP(() => {
-		gsap.to(imageRef.current,
+		gsap.to(imageContRef.current,
 			{
 				scale: 0.95,
+				scrollTrigger: {
+					trigger: imageRef.current,
+					start: 'bottom 95%',
+					end: 'bottom 30%',
+					scrub: true
+				}
+			}
+		)
+		gsap.to(imageRef.current,
+			{
+				scale: 1.12,
+				y: '30%',
 				scrollTrigger: {
 					trigger: imageRef.current,
 					start: 'bottom 95%',
@@ -28,7 +41,7 @@ const Hero = () => {
 
 	return (
 		<div className="w-full h-screen flex items-center relative">
-			<div className="absolute inset-0 -z-10">
+			<div className="absolute inset-0 -z-10 overflow-hidden" ref={imageContRef}>
 				<img
 					src="/assets/hero-img1.png"
 					alt="image"
