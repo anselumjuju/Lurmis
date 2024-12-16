@@ -5,11 +5,16 @@ import { Lenis } from './containers';
 import { Config, Home } from './pages';
 import useStore from './store/store';
 import gsap from 'gsap';
+import { useLocation } from 'react-router-dom';
 
 function App() {
-  const { page } = useStore();
+  const { page, setIsEnglish } = useStore();
   const overlayRef = useRef();
   const pageRef = useRef();
+  const location = useLocation();
+  const pathName = location.pathname.slice(1);
+
+  useEffect(() => setIsEnglish((pathName != 'es')), [location, setIsEnglish]);
 
   const [currentPage, setCurrentPage] = useState('home');
 

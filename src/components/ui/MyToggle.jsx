@@ -6,6 +6,8 @@ const MyToggle = ({ startIcon: StartIcon, endIcon: EndIcon, startText: StartText
 
 	const [checked, setChecked] = useState(initialValue);
 
+	useEffect(() => setChecked(initialValue), [initialValue]);
+
 	useEffect(() => {
 		toggleFunc(checked);
 	}, [checked]);
