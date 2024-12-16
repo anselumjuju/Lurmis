@@ -10,13 +10,10 @@ const PrimaryButton = ({ text, onClick, startIcon: StartIcon, endIcon: EndIcon, 
 				? "bg-transparent border border-gray text-gray sm:text-gray lg:bg-gray lg:text-white lg:border-none"
 				: "bg-gray text-white";
 
-	const handleMouseUp = () => {
-		gsap.to('.icon', { scaleX: 1.3, scaleY: 1.1, duration: 0.2 });
-	}
+	const handleMouseUp = () => (StartIcon || EndIcon) && gsap.to('.icon', { scaleX: 1.3, scaleY: 1.1, duration: 0.2 });
 
-	const handleMouseDown = () => {
-		gsap.to('.icon', { scaleX: 1, duration: 0.2 });
-	}
+	const handleMouseDown = () => (StartIcon || EndIcon) && gsap.to('.icon', { scaleX: 1, duration: 0.2 });
+
 
 	return (
 		<button
