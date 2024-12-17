@@ -20,7 +20,7 @@ const Experience = () => {
 				</Plane>
 				<group position={[0, -1, 0]} scale={0.7}>
 					<Lamp />
-					<AccumulativeShadows position={[0, -1.043, 0]} temporal frames={100} alphaTest={0.2} scale={7} color="#000">
+					<AccumulativeShadows position={[0, -1.043, 0]} temporal frames={100} alphaTest={0.1} scale={7} color="#000">
 						<RandomizedLight position={[2, 5, 5]} intensity={1} amount={5} radius={4} bias={0.001} />
 					</AccumulativeShadows>
 				</group>
