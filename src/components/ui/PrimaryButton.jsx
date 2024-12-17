@@ -23,7 +23,7 @@ const PrimaryButton = ({ text, onClick, startIcon: StartIcon, endIcon: EndIcon, 
 			onMouseLeave={handleMouseDown}
 		>
 			{StartIcon && <StartIcon className="w-4 icon" />}
-			{text && <span className={`${isResponsive && "hidden lg:block"}`}>{text}</span>}
+			{text && <span className={`text-nowrap ${isResponsive && "hidden lg:block"}`}>{text}</span>}
 			{EndIcon && <EndIcon className="w-4 icon" />}
 		</button>
 	);

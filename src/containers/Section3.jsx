@@ -1,4 +1,4 @@
-import { AnimatedText, Image } from "@/components"
+import { AnimatedText, Image, PrimaryButton } from "@/components"
 import { getTranslation } from "@/lib/utils"
 import useStore from "@/store/store"
 import { useGSAP } from "@gsap/react"
@@ -7,16 +7,16 @@ import { useRef } from "react"
 
 const Section3 = () => {
 	const { setPage, isEnglish } = useStore()
-	const textRef = useRef();
+	const buttonRef = useRef();
 
 	useGSAP(() => {
-		gsap.fromTo(textRef.current,
-			{ y: '100%', opacity: 0, scaleY: 1.3 },
+		gsap.fromTo(buttonRef.current,
+			{ y: '70%', opacity: 0, scaleY: 1.2 },
 			{
 				y: 0, opacity: 1, scale: 1, ease: 'power2.out',
 				scrollTrigger: {
-					trigger: textRef.current,
-					start: 'top bottom',
+					trigger: buttonRef.current,
+					start: 'top 95%',
 					end: 'bottom 50%',
 					scrub: true,
 				}
@@ -35,7 +35,14 @@ const Section3 = () => {
 				</div>
 
 				<div className="w-full h-[40vh] lg:h-[50vh] flex items-start lg:items-end gap-4">
-					<p className="w-[60%] text-right lg:text-left cursor-pointer text-sm lg:text-md" onClick={() => setPage('config')} ref={textRef}>{getTranslation(isEnglish, 'section3.cta')}</p>
+					<div className="w-[60%]" ref={buttonRef}>
+						<PrimaryButton
+							text={getTranslation(isEnglish, 'section3.cta')}
+							onClick={() => setPage('config')}
+							variant={'outlined'}
+							className={'text-sm lg:text-md px-5	py-2.5 ml-auto lg:ml-0'}
+						/>
+					</div>
 					<Image src="/assets/sec1-img3.webp" alt="img" imgClassName="object-top" />
 				</div>
 
