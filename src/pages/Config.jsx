@@ -25,7 +25,7 @@ const Config = () => {
 
 			{/* Controls */}
 			{!isFullScreen &&
-				<div className="flex-1 max-w-screen-md h-full p-5 flex flex-col gap-y-3 overflow-y-auto z-10">
+				<div className="flex-1 max-w-(--breakpoint-md) h-full p-5 flex flex-col gap-y-3 overflow-y-auto z-10">
 					<div className="flex items-center justify-between">
 						<span className="justify-center hidden lg:flex"><Logo className={'fill-gray'} /></span>
 						<PrimaryButton text={getTranslation(isEnglish, 'config.buttons.contact')} startIcon={MailIcon} onClick={openEmail} isResponsive className={'lg:px-7 py-2.5'} />
