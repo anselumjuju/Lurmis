@@ -1,14 +1,14 @@
-import { useGLTF } from '@react-three/drei'
+import {useGLTF} from '@react-three/drei';
 
 const Lights = (props) => {
-  const { nodes, materials } = useGLTF('/models/light.glb')
+  const {nodes} = useGLTF('/models/light.glb');
   return (
     <group {...props} dispose={null}>
-      <mesh name="light" geometry={nodes.light.geometry} material={nodes.light.material} />
+      <mesh name='light' geometry={nodes.light.geometry} material={nodes.light.material} />
     </group>
-  )
-}
+  );
+};
 
-useGLTF.preload('/models/light.glb')
+useGLTF.preload('/models/light.glb');
 
-export default Lights
+export default Lights;
