@@ -1,6 +1,7 @@
-import { clsx } from "clsx";
-import { twMerge } from "tailwind-merge"
-import translations from '../lib/translations.json'
+import {clsx} from 'clsx';
+import {twMerge} from 'tailwind-merge';
+import translations from '../lib/translations.json';
+import useStore from '@/store/store';
 
 export function cn(...inputs) {
   return twMerge(clsx(inputs));
@@ -46,14 +47,15 @@ export function sliderValueToRGB(value) {
   return `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
 }
 
-export function degreesToRadians(degrees) { return degrees * (Math.PI / 180); }
-
+export function degreesToRadians(degrees) {
+  return degrees * (Math.PI / 180);
+}
 
 export const takeScreenshot = () => {
-  const link = document.createElement('a')
-  link.setAttribute('download', 'lurmis.png')
-  link.setAttribute('href', document.querySelector('canvas').toDataURL('image/png').replace('image/png', 'image/octet-stream'))
-  link.click()
+  const link = document.createElement('a');
+  link.setAttribute('download', 'lurmis.png');
+  link.setAttribute('href', document.querySelector('canvas').toDataURL('image/png').replace('image/png', 'image/octet-stream'));
+  link.click();
 };
 
 export const openShare = async () => {
@@ -74,9 +76,10 @@ export const openEmail = () => {
   const subject = 'Lurmis - Lamp Configurator';
   const body = 'Hello, I would like to know more about Lurmis.';
   window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
+};
 
-export const getTranslation = (isEnglish, keyPath) => {
-  const language = isEnglish ? 'en' : 'es';
+export const getTranslation = (keyPath) => {
+  const {language} = useStore();
+  if (language !== 'eu' && language !== 'en' && language !== 'es') return '';
   return keyPath.split('.').reduce((obj, key) => obj[key], translations[language]);
-}
+};

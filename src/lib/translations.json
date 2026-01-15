@@ -112,5 +112,62 @@
         "download": "Descargar"
       }
     }
+  },
+  "eu": {
+    "hero": {
+      "title": "Ideia argiak. Argi beroa. Une perfektuak.",
+      "subtitle": "Argitu zure uneak",
+      "button": "3D Konfiguratzailea"
+    },
+    "section1": {
+      "title": "Zergatik gustatuko zaizu",
+      "caption1": "Dotorezia erraza",
+      "caption2": "Giro pertsonalizatua",
+      "caption3": "Diseinu zaindua"
+    },
+    "section2": {
+      "title": "Diseinatu zure espaziorako lanpara perfektua Lurmis konfiguratzailearekin"
+    },
+    "section3": {
+      "title": "Sortu zure espaziora egokitutako lanpara ideala Lurmis konfiguratzailearekin",
+      "cta": "Konfiguratu orain"
+    },
+    "footer": {
+      "caption": "Lurmis-en kalitate handiko lanparak diseinatu eta sortzen ditugu, etxe-estilo guztietara egokitzeko.",
+      "contact": "Harremana",
+      "copyright": "© 2024 - Lurmis bilduma | Eskubide guztiak erreserbatuta"
+    },
+    "config": {
+      "material": {
+        "title": "Materiala",
+        "bleach": "Pagoa",
+        "oak": "Haritza",
+        "walnut": "Intxaurrondoa"
+      },
+      "whiteColor": {
+        "title": "Kolore Zuria",
+        "white": "Zuria"
+      },
+      "rgbColor": {
+        "title": "RGB Kolorea",
+        "red": "Gorria",
+        "green": "Berdea",
+        "blue": "Urdina"
+      },
+      "baseTypes": {
+        "title": "Oinarri Motak",
+        "base1": "1. Oinarria",
+        "base2": "2. Oinarria"
+      },
+      "colorTemperature": "Kolore Tenperatura",
+      "lightIntensity": "Argiaren Intentsitatea",
+      "turnOnOff": "Piztu / Itzali",
+      "buttons": {
+        "back": "Atzera",
+        "contact": "Kontaktua",
+        "share": "Partekatu",
+        "download": "Deskargatu"
+      }
+    }
   }
 }

@@ -1,11 +1,28 @@
-import { ReactLenis } from "@studio-freight/react-lenis";
+import Lenis from 'lenis';
+import {useEffect} from 'react';
 
-const Lenis = ({ children }) => {
-	return (
-		<ReactLenis options={{ duration: 2 }} root>
-			{children}
-		</ReactLenis>
-	);
-};
+function LenisProvider({children}) {
+  useEffect(() => {
+    const lenis = new Lenis({
+      lerp: 0.03,
+      duration: 2,
+      smoothTouch: true,
+      easing: (t) => 1 - Math.pow(1 - t, 3),
+    });
 
-export default Lenis;
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
+  return children;
+}
+
+export default LenisProvider;

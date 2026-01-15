@@ -1,22 +1,32 @@
-import {useEffect, useRef, useState} from 'react';
+import {useEffect, useRef} from 'react';
 import './App.css';
 import {Logo} from './components';
-import {Lenis} from './containers';
-import {Config, Home} from './pages';
+import {Home} from './pages';
 import useStore from './store/store';
 import gsap from 'gsap';
-import {useLocation} from 'react-router-dom';
+import {useLocation, useSearchParams} from 'react-router-dom';
+import LenisProvider from './containers/Lenis';
 
 function App() {
-  const {page, setIsEnglish} = useStore();
+  const {language, setLanguage} = useStore();
   const overlayRef = useRef();
   const pageRef = useRef();
   const location = useLocation();
   const pathName = location.pathname.slice(1);
 
-  useEffect(() => setIsEnglish(pathName != 'es'), [location, setIsEnglish, pathName]);
+  const [searchParams] = useSearchParams();
 
-  const [currentPage, setCurrentPage] = useState('home');
+  useEffect(() => {
+    const lang = searchParams.get('lang');
+
+    if (!lang) {
+      setLanguage('eu');
+      return;
+    }
+
+    if (lang !== 'en' && lang !== 'es' && lang !== 'eu') setLanguage('eu');
+    setLanguage(lang);
+  }, [location, pathName]);
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -29,9 +39,6 @@ function App() {
         ease: 'power4.inOut',
         onStart: () => {
           pageRef.current.classList.add('h-screen', 'overflow-y-hidden');
-        },
-        onComplete: () => {
-          setCurrentPage(page);
         },
       }
     )
@@ -49,7 +56,7 @@ function App() {
         },
         '-=0.5'
       );
-  }, [page]);
+  });
 
   return (
     <div className='w-full overflow-hidden font-figtree'>
@@ -59,16 +66,14 @@ function App() {
         </span>
       </div>
       <div className='w-full overflow-x-hidden' ref={pageRef}>
-        {currentPage === 'home' ? (
-          <Lenis>
-            <Home />
-          </Lenis>
-        ) : (
-          <Config />
-        )}
+        <LenisProvider>
+          <Home />
+        </LenisProvider>
       </div>
     </div>
   );
 }
 
 export default App;
+
+// https://www.youtube.com/watch?v=-U89sofKNyA

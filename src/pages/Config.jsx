@@ -12,7 +12,7 @@ const Config = () => {
       <div className={`flex-1 h-full ${!isFullScreen && 'max-h-[50vh] lg:max-h-full'} relative`}>
         <div className='w-full p-5 flex items-center absolute top-0 z-10'>
           <PrimaryButton
-            text={getTranslation(isEnglish, 'config.buttons.back')}
+            text={getTranslation('config.buttons.back')}
             startIcon={ArrowLeft}
             onClick={() => {
               setPage('home');
@@ -57,18 +57,11 @@ const Config = () => {
             <span className='justify-center hidden lg:flex'>
               <Logo className={'fill-gray'} />
             </span>
-            <PrimaryButton text={getTranslation(isEnglish, 'config.buttons.contact')} startIcon={MailIcon} onClick={openEmail} isResponsive className={'lg:px-7 py-2.5'} />
+            <PrimaryButton text={getTranslation('config.buttons.contact')} startIcon={MailIcon} onClick={openEmail} isResponsive className={'lg:px-7 py-2.5'} />
             <div className='w-full flex justify-end gap-x-5 lg:hidden'>
+              <PrimaryButton text={getTranslation('config.buttons.share')} startIcon={Share2} onClick={openShare} isResponsive className={'lg:px-7 py-2.5'} variant={'outlined'} />
               <PrimaryButton
-                text={getTranslation(isEnglish, 'config.buttons.share')}
-                startIcon={Share2}
-                onClick={openShare}
-                isResponsive
-                className={'lg:px-7 py-2.5'}
-                variant={'outlined'}
-              />
-              <PrimaryButton
-                text={getTranslation(isEnglish, 'config.buttons.download')}
+                text={getTranslation('config.buttons.download')}
                 startIcon={Download}
                 onClick={takeScreenshot}
                 isResponsive
@@ -81,16 +74,9 @@ const Config = () => {
             <Controls />
           </div>
           <div className='flex-col items-end space-y-3 hidden lg:flex'>
+            <PrimaryButton text={getTranslation('config.buttons.share')} startIcon={Share2} onClick={openShare} isResponsive className={'lg:px-7 py-2.5'} variant={'outlined'} />
             <PrimaryButton
-              text={getTranslation(isEnglish, 'config.buttons.share')}
-              startIcon={Share2}
-              onClick={openShare}
-              isResponsive
-              className={'lg:px-7 py-2.5'}
-              variant={'outlined'}
-            />
-            <PrimaryButton
-              text={getTranslation(isEnglish, 'config.buttons.download')}
+              text={getTranslation('config.buttons.download')}
               startIcon={Download}
               onClick={takeScreenshot}
               isResponsive
