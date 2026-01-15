@@ -1,11 +1,9 @@
 import {create} from 'zustand';
 
 const useStore = create((set) => ({
-  page: 'home',
-  setPage: (page) => set(() => ({page})),
   isFullScreen: false,
   setIsFullScreen: (isFullScreen) => set(() => ({isFullScreen})),
-  material: 'bleach',
+  material: 'beech',
   setMaterial: (material) => set(() => ({material})),
   color: 'white',
   setColor: (color) => set(() => ({color})),

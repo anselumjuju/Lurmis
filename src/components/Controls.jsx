@@ -8,12 +8,12 @@ import {getTranslation} from '@/lib/utils';
 import Toggle from './Toggle';
 
 const Controls = () => {
-  const {material, setMaterial, color, setColor, stand, setStand, setLampColor, isLightOn, setIsLightOn, language} = useStore();
+  const {material, setMaterial, color, setColor, stand, setStand, lampColor, setLampColor, isLightOn, setIsLightOn, language} = useStore();
 
   const materialData = [
-    {label: getTranslation(language, 'config.material.bleach'), value: 'bleach', imgPath: '/assets/bleach.webp'},
+    {label: getTranslation(language, 'config.material.beech'), value: 'beech', imgPath: '/assets/beech.webp'},
     {label: getTranslation(language, 'config.material.oak'), value: 'oak', imgPath: '/assets/oak.webp'},
-    {label: getTranslation(language, 'config.material.walnut'), value: 'wal', imgPath: '/assets/walnut.webp'},
+    {label: getTranslation(language, 'config.material.walnut'), value: 'walnut', imgPath: '/assets/walnut.webp'},
   ];
 
   const colorData = [
@@ -49,7 +49,7 @@ const Controls = () => {
                 value={value}
                 label={label}
                 bgColor={bgColor}
-                isSelected={value === color}
+                isSelected={value === color || value === lampColor}
                 onClick={() => {
                   setColor(value);
                   setLampColor(value);
@@ -94,7 +94,7 @@ const Controls = () => {
       </div>
       <div className='space-y-4'>
         <p className='text-md uppercase text-semibold'>{getTranslation(language, 'config.turnOnOff')}</p>
-        <Toggle startIcon={Lightbulb} endIcon={LightbulbOff} initialValue={isLightOn} toggleFunc={setIsLightOn} />
+        <Toggle startIcon={Lightbulb} endIcon={LightbulbOff} initialValue={isLightOn} toggleFunc={setIsLightOn} value={isLightOn} />
       </div>
     </div>
   );

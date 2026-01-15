@@ -26,7 +26,7 @@
     "config": {
       "material": {
         "title": "Material",
-        "bleach": "Beech",
+        "beech": "Beech",
         "oak": "Oak",
         "walnut": "Walnut"
       },
@@ -83,7 +83,7 @@
     "config": {
       "material": {
         "title": "Material",
-        "bleach": "Haya",
+        "beech": "Haya",
         "oak": "Roble",
         "walnut": "Nogal"
       },
@@ -140,7 +140,7 @@
     "config": {
       "material": {
         "title": "Materiala",
-        "bleach": "Pagoa",
+        "beech": "Pagoa",
         "oak": "Haritza",
         "walnut": "Intxaurrondoa"
       },
