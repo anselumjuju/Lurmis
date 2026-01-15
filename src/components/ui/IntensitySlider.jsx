@@ -9,6 +9,10 @@ const IntensitySlider = ({startIcon: StartIcon, endIcon: EndIcon, className}) =>
   const [value, setValue] = useState([lampIntensity]);
 
   useEffect(() => {
+    setValue([lampIntensity]);
+  }, [lampIntensity]);
+
+  useEffect(() => {
     const debouncedUpdate = debounce(() => {
       setLampIntensity(value[0]);
     }, 200);

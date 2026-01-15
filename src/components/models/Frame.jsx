@@ -5,7 +5,7 @@ const Frame = (props) => {
   const {nodes, materials} = useGLTF('/models/frame.glb');
 
   const {material: selectedMaterial} = useStore();
-  const material = selectedMaterial === 'bleach' ? materials.bleach : selectedMaterial === 'oak' ? materials.oak : materials.walnut;
+  const material = selectedMaterial === 'beech' ? materials.bleach : selectedMaterial === 'oak' ? materials.oak : materials.walnut;
 
   return (
     <group {...props} dispose={null}>

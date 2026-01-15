@@ -2,8 +2,12 @@ import {Switch} from '@/components/ui/switch';
 import {cn} from '@/lib/utils';
 import {useEffect, useState} from 'react';
 
-const Toggle = ({startIcon: StartIcon, endIcon: EndIcon, startText: StartText, endText: EndText, initialValue, toggleFunc, className}) => {
+const Toggle = ({startIcon: StartIcon, endIcon: EndIcon, startText: StartText, endText: EndText, initialValue, value, toggleFunc, className}) => {
   const [checked, setChecked] = useState(initialValue);
+
+  useEffect(() => {
+    setChecked(value);
+  }, [value]);
 
   useEffect(() => {
     toggleFunc(checked);
