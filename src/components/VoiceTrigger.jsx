@@ -115,6 +115,7 @@ export default function VoiceTrigger() {
         }
       }, 4000);
     } catch (err) {
+      console.error(err);
       setStatus('error');
       setMessage('Microphone denied');
     }
