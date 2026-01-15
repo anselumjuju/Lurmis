@@ -2,12 +2,14 @@ import {audioTranscribe} from '@/lib/audioTranscribe';
 import {detectCommand} from '@/lib/detectCommand';
 import useStore from '@/store/store';
 import {useRef, useState, useEffect} from 'react';
+import {useSearchParams} from 'react-router-dom';
 
 export default function VoiceTrigger() {
   const mediaRecorderRef = useRef(null);
   const chunksRef = useRef([]);
   const timeoutRef = useRef(null);
   const store = useStore();
+  const [searchParams] = useSearchParams();
 
   const [status, setStatus] = useState('idle');
   const [message, setMessage] = useState('');
@@ -86,7 +88,6 @@ export default function VoiceTrigger() {
           const audioFile = new File([audioBlob], 'voice-command.webm', {type: 'audio/webm'});
 
           const transcript = await audioTranscribe(audioFile);
-          console.log('Transcript: ', transcript);
           const command = detectCommand(transcript);
 
           if (command === 'UNKNOWN') {
@@ -124,7 +125,6 @@ export default function VoiceTrigger() {
   const isRecording = status === 'listening';
   const isProcessing = status === 'processing';
 
-  // Helper to determine ring color based on state
   const getStatusColor = () => {
     switch (status) {
       case 'listening':
@@ -140,13 +140,16 @@ export default function VoiceTrigger() {
     }
   };
 
+  const lang = searchParams.get('lang');
+  if (lang != null && lang != 'eu') return null;
+
   return (
     <div className='fixed bottom-8 right-8 md:bottom-12 md:right-12 z-50 flex flex-col items-center'>
       <div
         className={`
-        absolute bottom-full mb-4
+        absolute top-1/2 right-full -translate-y-1/2
         transition-all duration-300 ease-out origin-bottom
-        ${message ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-90 pointer-events-none'}
+        ${message ? 'opacity-100 scale-100 -translate-x-2' : 'opacity-0 scale-90 translate-x-1/2 pointer-events-none'}
       `}>
         <div
           className={`
