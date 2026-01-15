@@ -1,7 +1,6 @@
 import {clsx} from 'clsx';
 import {twMerge} from 'tailwind-merge';
 import translations from '../lib/translations.json';
-import useStore from '@/store/store';
 
 export function cn(...inputs) {
   return twMerge(clsx(inputs));
@@ -78,8 +77,10 @@ export const openEmail = () => {
   window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 };
 
-export const getTranslation = (keyPath) => {
-  const {language} = useStore();
-  if (language !== 'eu' && language !== 'en' && language !== 'es') return '';
+export const getTranslation = (language, keyPath) => {
+  if (language !== 'eu' && language !== 'en' && language !== 'es') {
+    return keyPath.split('.').reduce((obj, key) => obj[key], translations['eu']);
+  }
+
   return keyPath.split('.').reduce((obj, key) => obj[key], translations[language]);
 };

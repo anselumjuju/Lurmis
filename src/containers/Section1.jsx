@@ -7,12 +7,12 @@ import {useRef} from 'react';
 
 const Section1 = () => {
   const cardRef = useRef([]);
-  const {isEnglish} = useStore();
+  const {language} = useStore();
 
   const galleryData = [
-    {imgPath: '/assets/sec1-img1.webp', title: getTranslation('section1.caption1')},
-    {imgPath: '/assets/sec1-img3.webp', title: getTranslation('section1.caption2')},
-    {imgPath: '/assets/sec1-img2.webp', title: getTranslation('section1.caption3')},
+    {imgPath: '/assets/sec1-img1.webp', title: getTranslation(language, 'section1.caption1')},
+    {imgPath: '/assets/sec1-img3.webp', title: getTranslation(language, 'section1.caption2')},
+    {imgPath: '/assets/sec1-img2.webp', title: getTranslation(language, 'section1.caption3')},
   ];
 
   useGSAP(() => {
@@ -37,7 +37,7 @@ const Section1 = () => {
 
   return (
     <div className='section space-y-12'>
-      <AnimatedText className='text-2xl md:text-3xl lg:text-4xl font-aboreto' text={getTranslation('section1.title')} />
+      <AnimatedText className='text-2xl md:text-3xl lg:text-4xl font-aboreto' text={getTranslation(language, 'section1.title')} />
       <div className='w-full flex flex-col sm:flex-row gap-6'>
         {galleryData.map(({imgPath, title}) => (
           <div className='w-full md:w-1/3 flex flex-col items-start gap-y-2' key={imgPath} ref={(el) => cardRef.current.push(el)}>

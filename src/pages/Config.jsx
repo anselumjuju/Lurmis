@@ -4,7 +4,7 @@ import useStore from '@/store/store';
 import {getTranslation, openEmail, openShare, takeScreenshot} from '@/lib/utils';
 
 const Config = () => {
-  const {setPage, isFullScreen, setIsFullScreen, isEnglish} = useStore();
+  const {setPage, isFullScreen, setIsFullScreen, language} = useStore();
 
   return (
     <div className='w-full h-dvh flex flex-col lg:flex-row overflow-y-hidden select-none'>
@@ -12,7 +12,7 @@ const Config = () => {
       <div className={`flex-1 h-full ${!isFullScreen && 'max-h-[50vh] lg:max-h-full'} relative`}>
         <div className='w-full p-5 flex items-center absolute top-0 z-10'>
           <PrimaryButton
-            text={getTranslation('config.buttons.back')}
+            text={getTranslation(language, 'config.buttons.back')}
             startIcon={ArrowLeft}
             onClick={() => {
               setPage('home');
@@ -57,11 +57,18 @@ const Config = () => {
             <span className='justify-center hidden lg:flex'>
               <Logo className={'fill-gray'} />
             </span>
-            <PrimaryButton text={getTranslation('config.buttons.contact')} startIcon={MailIcon} onClick={openEmail} isResponsive className={'lg:px-7 py-2.5'} />
+            <PrimaryButton text={getTranslation(language, 'config.buttons.contact')} startIcon={MailIcon} onClick={openEmail} isResponsive className={'lg:px-7 py-2.5'} />
             <div className='w-full flex justify-end gap-x-5 lg:hidden'>
-              <PrimaryButton text={getTranslation('config.buttons.share')} startIcon={Share2} onClick={openShare} isResponsive className={'lg:px-7 py-2.5'} variant={'outlined'} />
               <PrimaryButton
-                text={getTranslation('config.buttons.download')}
+                text={getTranslation(language, 'config.buttons.share')}
+                startIcon={Share2}
+                onClick={openShare}
+                isResponsive
+                className={'lg:px-7 py-2.5'}
+                variant={'outlined'}
+              />
+              <PrimaryButton
+                text={getTranslation(language, 'config.buttons.download')}
                 startIcon={Download}
                 onClick={takeScreenshot}
                 isResponsive
@@ -74,9 +81,16 @@ const Config = () => {
             <Controls />
           </div>
           <div className='flex-col items-end space-y-3 hidden lg:flex'>
-            <PrimaryButton text={getTranslation('config.buttons.share')} startIcon={Share2} onClick={openShare} isResponsive className={'lg:px-7 py-2.5'} variant={'outlined'} />
             <PrimaryButton
-              text={getTranslation('config.buttons.download')}
+              text={getTranslation(language, 'config.buttons.share')}
+              startIcon={Share2}
+              onClick={openShare}
+              isResponsive
+              className={'lg:px-7 py-2.5'}
+              variant={'outlined'}
+            />
+            <PrimaryButton
+              text={getTranslation(language, 'config.buttons.download')}
               startIcon={Download}
               onClick={takeScreenshot}
               isResponsive

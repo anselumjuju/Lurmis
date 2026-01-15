@@ -6,8 +6,8 @@ import gsap from 'gsap';
 import {useRef} from 'react';
 
 const Section3 = () => {
-  const {isEnglish} = useStore();
   const buttonRef = useRef();
+  const {language} = useStore();
 
   useGSAP(() => {
     gsap.fromTo(
@@ -30,7 +30,7 @@ const Section3 = () => {
 
   return (
     <div className='section h-full space-y-12'>
-      <AnimatedText className='max-w-250 text-2xl md:text-3xl lg:text-4xl font-aboreto text-left' text={getTranslation('section3.title')} />
+      <AnimatedText className='max-w-250 text-2xl md:text-3xl lg:text-4xl font-aboreto text-left' text={getTranslation(language, 'section3.title')} />
       <div className='w-full h-max flex flex-col lg:flex-row items-end justify-between gap-4'>
         <div className='w-full h-[40vh] flex gap-4 items-end'>
           <Image src='/assets/sec3-img1.webp' alt='img' className='lg:h-[90%]' imgClassName='object-top' />
@@ -40,7 +40,7 @@ const Section3 = () => {
         <div className='w-full h-[40vh] lg:h-[50vh] flex items-start lg:items-end gap-4'>
           <div className='w-[60%]' ref={buttonRef}>
             <a href='/config'>
-              <PrimaryButton text={getTranslation('section3.cta')} variant={'outlined'} className={'text-sm lg:text-md px-5	py-2.5 ml-auto lg:ml-0'} />
+              <PrimaryButton text={getTranslation(language, 'section3.cta')} variant={'outlined'} className={'text-sm lg:text-md px-5	py-2.5 ml-auto lg:ml-0'} />
             </a>
           </div>
           <Image src='/assets/sec1-img3.webp' alt='img' imgClassName='object-top' />

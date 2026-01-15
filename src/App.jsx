@@ -8,7 +8,7 @@ import {useLocation, useSearchParams} from 'react-router-dom';
 import LenisProvider from './containers/Lenis';
 
 function App() {
-  const {language, setLanguage} = useStore();
+  const {setLanguage} = useStore();
   const overlayRef = useRef();
   const pageRef = useRef();
   const location = useLocation();
@@ -26,7 +26,7 @@ function App() {
 
     if (lang !== 'en' && lang !== 'es' && lang !== 'eu') setLanguage('eu');
     setLanguage(lang);
-  }, [location, pathName]);
+  }, [location, pathName, searchParams, setLanguage]);
 
   useEffect(() => {
     const tl = gsap.timeline();
