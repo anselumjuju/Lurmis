@@ -4,10 +4,14 @@ import useStore from '@/store/store';
 import {useGSAP} from '@gsap/react';
 import gsap from 'gsap';
 import {useRef} from 'react';
+import {useNavigate, useSearchParams} from 'react-router-dom';
 
 const Section3 = () => {
   const buttonRef = useRef();
   const {language} = useStore();
+
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   useGSAP(() => {
     gsap.fromTo(
@@ -28,6 +32,12 @@ const Section3 = () => {
     );
   });
 
+  const handleClick = () => {
+    const lang = searchParams.get('lang');
+    const newPath = '/config/' + (lang === null || lang === 'eu' ? '' : `?lang=${lang}`);
+    navigate(newPath);
+  };
+
   return (
     <div className='section h-full space-y-12'>
       <AnimatedText className='max-w-250 text-2xl md:text-3xl lg:text-4xl font-aboreto text-left' text={getTranslation(language, 'section3.title')} />
@@ -39,9 +49,7 @@ const Section3 = () => {
 
         <div className='w-full h-[40vh] lg:h-[50vh] flex items-start lg:items-end gap-4'>
           <div className='w-[60%]' ref={buttonRef}>
-            <a href='/config'>
-              <PrimaryButton text={getTranslation(language, 'section3.cta')} variant={'outlined'} className={'text-sm lg:text-md px-5	py-2.5 ml-auto lg:ml-0'} />
-            </a>
+            <PrimaryButton text={getTranslation(language, 'section3.cta')} variant={'outlined'} className={'text-sm lg:text-md px-5	py-2.5 ml-auto lg:ml-0'} onClick={handleClick} />
           </div>
           <Image src='/assets/sec1-img3.webp' alt='img' imgClassName='object-top' />
         </div>

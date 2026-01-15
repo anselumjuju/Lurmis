@@ -1,11 +1,11 @@
 import {Lightbulb, LightbulbOff, Sun, SunDim, ThermometerSnowflake, ThermometerSun} from 'lucide-react';
 import {RadioGroup} from '@/components/ui/radio-group';
 import TempSlider from './ui/TempSlider';
-import MyToggle from './ui/languageToggle';
 import RadioItem from './ui/RadioItem';
 import useStore from '@/store/store';
 import IntensitySlider from './ui/IntensitySlider';
 import {getTranslation} from '@/lib/utils';
+import Toggle from './Toggle';
 
 const Controls = () => {
   const {material, setMaterial, color, setColor, stand, setStand, setLampColor, isLightOn, setIsLightOn, language} = useStore();
@@ -94,7 +94,7 @@ const Controls = () => {
       </div>
       <div className='space-y-4'>
         <p className='text-md uppercase text-semibold'>{getTranslation(language, 'config.turnOnOff')}</p>
-        <MyToggle startIcon={Lightbulb} endIcon={LightbulbOff} initialValue={isLightOn} toggleFunc={setIsLightOn} />
+        <Toggle startIcon={Lightbulb} endIcon={LightbulbOff} initialValue={isLightOn} toggleFunc={setIsLightOn} />
       </div>
     </div>
   );

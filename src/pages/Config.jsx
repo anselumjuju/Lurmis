@@ -1,10 +1,29 @@
+import {useEffect} from 'react';
 import {ArrowLeft, Download, MailIcon, MoveDiagonal, Share2} from 'lucide-react';
 import {Controls, Experience, Logo, PrimaryButton} from '../components';
 import useStore from '@/store/store';
 import {getTranslation, openEmail, openShare, takeScreenshot} from '@/lib/utils';
+import {useLocation, useNavigate, useSearchParams} from 'react-router-dom';
 
 const Config = () => {
-  const {setPage, isFullScreen, setIsFullScreen, language} = useStore();
+  const {isFullScreen, setIsFullScreen, language, setLanguage} = useStore();
+  const location = useLocation();
+  const pathName = location.pathname.slice(1);
+  const navigate = useNavigate();
+
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const lang = searchParams.get('lang');
+
+    if (!lang) {
+      setLanguage('eu');
+      return;
+    }
+
+    if (lang !== 'en' && lang !== 'es' && lang !== 'eu') setLanguage('eu');
+    setLanguage(lang);
+  }, [location, pathName, searchParams, setLanguage]);
 
   return (
     <div className='w-full h-dvh flex flex-col lg:flex-row overflow-y-hidden select-none'>
@@ -15,7 +34,9 @@ const Config = () => {
             text={getTranslation(language, 'config.buttons.back')}
             startIcon={ArrowLeft}
             onClick={() => {
-              setPage('home');
+              const lang = searchParams.get('lang');
+              const newPath = '/' + (lang === null || lang === 'eu' ? '' : `?lang=${lang}`);
+              navigate(newPath);
             }}
             isResponsive
             className={'lg:px-7 py-2.5'}
@@ -35,7 +56,7 @@ const Config = () => {
             variant={'outlined'}
           />
         </div>
-        <div className='w-full h-full absolute top-0'>
+        <div className='w-full h-full absolute top-0 bg-neutral-400'>
           <Experience />
         </div>
         <PrimaryButton

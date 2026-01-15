@@ -3,7 +3,7 @@ import Button from '@/components/ui/button';
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from '@/components/ui/dropdown-menu';
 import {useEffect, useState} from 'react';
 import useStore from '@/store/store';
-import {useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 
 const languages = [
   {code: 'en', name: 'English'},
@@ -15,22 +15,28 @@ const LanguageToggle = () => {
   const {language} = useStore();
   const [selectedLanguage, setSelectedLanguage] = useState(language);
   const navigate = useNavigate();
+  const location = useLocation();
+  const pathname = location.pathname.slice(1);
 
   useEffect(() => {
     setSelectedLanguage(language);
   }, [language]);
 
   const handleLanguageChange = (code) => {
+    const newPath = pathname === '' ? `/` : `/config/`;
     setSelectedLanguage(code);
-    if (code === 'en') navigate('/?lang=en');
-    else if (code === 'es') navigate('/?lang=es');
-    else navigate('/');
+    if (code === 'en') navigate(newPath + '?lang=en');
+    else if (code === 'es') navigate(newPath + '?lang=es');
+    else navigate(newPath);
   };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant='ghost' size='icon' className='rounded-full hover:bg-accent hover:text-accent-foreground active:scale-95 transition-transform data-[state=open]:bg-accent'>
+        <Button
+          variant='ghost'
+          size='icon'
+          className='rounded-full hover:bg-accent hover:text-accent-foreground active:scale-95 transition-transform data-[state=open]:bg-accent data-[state=open]:text-accent-foreground cursor-pointer'>
           <Globe className='h-[1.2rem] w-[1.2rem]' />
           <span className='sr-only'>Toggle language</span>
         </Button>
