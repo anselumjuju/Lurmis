@@ -1,5 +1,5 @@
-import {clsx} from 'clsx';
-import {twMerge} from 'tailwind-merge';
+import { clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 import translations from '../lib/translations.json';
 
 export function cn(...inputs) {
@@ -7,7 +7,10 @@ export function cn(...inputs) {
 }
 
 export function sliderValueToRGB(value) {
-  let kelvin = value <= 50 ? 2000 + (value / 50) * (4500 - 2000) : 4500 + ((value - 50) / 50) * (10000 - 4500);
+  let kelvin =
+    value <= 50
+      ? 2000 + (value / 50) * (4500 - 2000)
+      : 4500 + ((value - 50) / 50) * (10000 - 4500);
 
   let temp = kelvin / 100;
   let r, g, b;
@@ -53,7 +56,13 @@ export function degreesToRadians(degrees) {
 export const takeScreenshot = () => {
   const link = document.createElement('a');
   link.setAttribute('download', 'lurmis.png');
-  link.setAttribute('href', document.querySelector('canvas').toDataURL('image/png').replace('image/png', 'image/octet-stream'));
+  link.setAttribute(
+    'href',
+    document
+      .querySelector('canvas')
+      .toDataURL('image/png')
+      .replace('image/png', 'image/octet-stream')
+  );
   link.click();
 };
 
@@ -79,8 +88,12 @@ export const openEmail = () => {
 
 export const getTranslation = (language, keyPath) => {
   if (language !== 'eu' && language !== 'en' && language !== 'es') {
-    return keyPath.split('.').reduce((obj, key) => obj[key], translations['eu']);
+    return keyPath
+      .split('.')
+      .reduce((obj, key) => obj[key], translations['eu']);
   }
 
-  return keyPath.split('.').reduce((obj, key) => obj[key], translations[language]);
+  return keyPath
+    .split('.')
+    .reduce((obj, key) => obj[key], translations[language]);
 };

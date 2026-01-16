@@ -1,9 +1,9 @@
-import {audioTranscribe} from '@/lib/audioTranscribe';
-import {detectCommand} from '@/lib/detectCommand';
-import {getTranslation} from '@/lib/utils';
+import { audioTranscribe } from '@/lib/audioTranscribe';
+import { detectCommand } from '@/lib/detectCommand';
+import { getTranslation } from '@/lib/utils';
 import useStore from '@/store/store';
-import {useRef, useState, useEffect} from 'react';
-import {useSearchParams} from 'react-router-dom';
+import { useRef, useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 export default function VoiceTrigger() {
   const mediaRecorderRef = useRef(null);
@@ -26,7 +26,7 @@ export default function VoiceTrigger() {
     return () => clearTimeout(timer);
   }, [status]);
 
-  const executeCommand = (command) => {
+  const executeCommand = command => {
     switch (command) {
       case 'POWER_ON':
         store.setIsLightOn(true);
@@ -71,12 +71,12 @@ export default function VoiceTrigger() {
 
   const startRecording = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({audio: true});
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       const mediaRecorder = new MediaRecorder(stream);
       mediaRecorderRef.current = mediaRecorder;
       chunksRef.current = [];
 
-      mediaRecorder.ondataavailable = (e) => {
+      mediaRecorder.ondataavailable = e => {
         if (e.data.size > 0) chunksRef.current.push(e.data);
       };
 
@@ -85,8 +85,10 @@ export default function VoiceTrigger() {
         setMessage(getTranslation(store.language, 'voiceCommand.thinking'));
 
         try {
-          const audioBlob = new Blob(chunksRef.current, {type: 'audio/webm'});
-          const audioFile = new File([audioBlob], 'voice-command.webm', {type: 'audio/webm'});
+          const audioBlob = new Blob(chunksRef.current, { type: 'audio/webm' });
+          const audioFile = new File([audioBlob], 'voice-command.webm', {
+            type: 'audio/webm',
+          });
 
           const transcript = await audioTranscribe(audioFile);
           const command = detectCommand(transcript);
@@ -102,9 +104,11 @@ export default function VoiceTrigger() {
         } catch (err) {
           console.error(err);
           setStatus('error');
-          setMessage(getTranslation(store.language, 'voiceCommand.connectionFailed'));
+          setMessage(
+            getTranslation(store.language, 'voiceCommand.connectionFailed')
+          );
         }
-        stream.getTracks().forEach((track) => track.stop());
+        stream.getTracks().forEach(track => track.stop());
       };
 
       mediaRecorder.start();
@@ -119,7 +123,9 @@ export default function VoiceTrigger() {
     } catch (err) {
       console.error(err);
       setStatus('error');
-      setMessage(getTranslation(store.language, 'voiceCommand.microphoneDenied'));
+      setMessage(
+        getTranslation(store.language, 'voiceCommand.microphoneDenied')
+      );
     }
   };
 
@@ -145,29 +151,35 @@ export default function VoiceTrigger() {
   if (lang != null && lang != 'eu') return null;
 
   return (
-    <div className='fixed bottom-8 right-8 md:bottom-12 md:right-12 z-50 flex flex-col items-center'>
+    <div className="fixed bottom-8 right-8 md:bottom-12 md:right-12 z-50 flex flex-col items-center">
       <div
         className={`
         absolute top-1/2 right-full -translate-y-1/2
         transition-all duration-300 ease-out origin-bottom
         ${message ? 'opacity-100 scale-100 -translate-x-2' : 'opacity-0 scale-90 translate-x-1/2 pointer-events-none'}
-      `}>
+      `}
+      >
         <div
           className={`
           px-4 py-2 rounded-2xl text-sm font-medium backdrop-blur-md shadow-lg border border-white/10 whitespace-nowrap capitalize
           ${status === 'error' ? 'bg-rose-500/90 text-white' : status === 'success' ? 'bg-emerald-500/90 text-white' : 'bg-slate-900/80 text-slate-100'}
-        `}>
+        `}
+        >
           {message}
         </div>
       </div>
 
       {/* Main Trigger Button */}
-      <div className='relative group'>
+      <div className="relative group">
         {/* Ripple Effect */}
-        {isRecording && <span className='absolute inset-0 rounded-full bg-red-500 animate-ping opacity-75 duration-1000' />}
+        {isRecording && (
+          <span className="absolute inset-0 rounded-full bg-red-500 animate-ping opacity-75 duration-1000" />
+        )}
 
         {/* Glow Effect */}
-        {isProcessing && <span className='absolute inset-0 rounded-full bg-blue-400 blur-md animate-pulse opacity-60' />}
+        {isProcessing && (
+          <span className="absolute inset-0 rounded-full bg-blue-400 blur-md animate-pulse opacity-60" />
+        )}
 
         <button
           onClick={startRecording}
@@ -179,10 +191,11 @@ export default function VoiceTrigger() {
             ${getStatusColor()}
             ${status === 'idle' ? 'hover:scale-105 active:scale-95' : 'scale-100'}
             shadow-xl
-          `}>
+          `}
+        >
           <img
-            src='/assets/audio-trigger.webp'
-            alt='Voice Trigger'
+            src="/assets/audio-trigger.webp"
+            alt="Voice Trigger"
             className={`
               w-full h-full object-cover transition-opacity duration-300
               ${isProcessing ? 'opacity-50 animate-pulse' : 'opacity-90 hover:opacity-100'}

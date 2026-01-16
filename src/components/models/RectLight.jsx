@@ -1,15 +1,20 @@
 import * as THREE from 'three';
-import {useThree} from '@react-three/fiber';
-import {useEffect} from 'react';
+import { useThree } from '@react-three/fiber';
+import { useEffect } from 'react';
 import useStore from '@/store/store';
 
-const RectLight = ({position, color, width, height}) => {
-  const {scene} = useThree();
+const RectLight = ({ position, color, width, height }) => {
+  const { scene } = useThree();
 
-  const {lampColor, lampIntensity} = useStore();
+  const { lampColor, lampIntensity } = useStore();
 
   useEffect(() => {
-    const rectLight = new THREE.RectAreaLight(lampColor, lampIntensity, width, height);
+    const rectLight = new THREE.RectAreaLight(
+      lampColor,
+      lampIntensity,
+      width,
+      height
+    );
     rectLight.position.set(position[0], position[1], position[2]);
     rectLight.rotation.x = -Math.PI / 2;
     rectLight.rotation.z = 0.17;

@@ -1,19 +1,19 @@
-import {Header, PrimaryButton} from '../components';
-import {ArrowRight} from 'lucide-react';
-import {useGSAP} from '@gsap/react';
+import { Header, PrimaryButton } from '../components';
+import { ArrowRight } from 'lucide-react';
+import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import {ScrollTrigger} from 'gsap/ScrollTrigger';
-import {useRef} from 'react';
-import {getTranslation} from '@/lib/utils';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useRef } from 'react';
+import { getTranslation } from '@/lib/utils';
 import useStore from '@/store/store';
-import {useNavigate, useSearchParams} from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const imageRef = useRef(null);
   const imageContRef = useRef(null);
-  const {language} = useStore();
+  const { language } = useStore();
   const navigate = useNavigate();
 
   const [searchParams] = useSearchParams();
@@ -42,21 +42,40 @@ const Hero = () => {
 
   const handleClick = () => {
     const lang = searchParams.get('lang');
-    const newPath = '/config/' + (lang === null || lang === 'eu' ? '' : `?lang=${lang}`);
+    const newPath =
+      '/config/' + (lang === null || lang === 'eu' ? '' : `?lang=${lang}`);
     navigate(newPath);
   };
 
   return (
-    <div className='w-full h-screen flex items-center relative'>
-      <div className='absolute inset-0 -z-10 overflow-hidden' ref={imageContRef}>
-        <img src='/assets/hero-img1.png' alt='image' className='w-full h-full object-cover object-left' ref={imageRef} />
+    <div className="w-full h-screen flex items-center relative">
+      <div
+        className="absolute inset-0 -z-10 overflow-hidden"
+        ref={imageContRef}
+      >
+        <img
+          src="/assets/hero-img1.png"
+          alt="image"
+          className="w-full h-full object-cover object-left"
+          ref={imageRef}
+        />
       </div>
-      <div className='section h-[90%] pb-10 lg:pb-0 flex flex-col justify-between items-center text-white'>
+      <div className="section h-[90%] pb-10 lg:pb-0 flex flex-col justify-between items-center text-white">
         <Header />
-        <div className='w-full flex flex-col gap-y-8 items-center justify-center text-center'>
-          <p className='text-sm lg:text-xl uppercase'>{getTranslation(language, 'hero.subtitle')}</p>
-          <p className='max-w-200 text-3xl md:text-4xl lg:text-5xl font-aboreto'>{getTranslation(language, 'hero.title')}</p>
-          <PrimaryButton text={getTranslation(language, 'hero.button')} endIcon={ArrowRight} className={'px-4 py-3 md:px-6'} onClick={handleClick} isResponsive={false} />
+        <div className="w-full flex flex-col gap-y-8 items-center justify-center text-center">
+          <p className="text-sm lg:text-xl uppercase">
+            {getTranslation(language, 'hero.subtitle')}
+          </p>
+          <p className="max-w-200 text-3xl md:text-4xl lg:text-5xl font-aboreto">
+            {getTranslation(language, 'hero.title')}
+          </p>
+          <PrimaryButton
+            text={getTranslation(language, 'hero.button')}
+            endIcon={ArrowRight}
+            className={'px-4 py-3 md:px-6'}
+            onClick={handleClick}
+            isResponsive={false}
+          />
         </div>
       </div>
     </div>

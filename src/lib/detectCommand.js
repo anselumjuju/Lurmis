@@ -40,17 +40,37 @@ const COMMANDS = [
   {
     command: 'POWER_ON',
     phrases: {
-      en: ['turn on the light', 'switch on the light', 'turn the light on', 'light on'],
+      en: [
+        'turn on the light',
+        'switch on the light',
+        'turn the light on',
+        'light on',
+      ],
       es: ['encender la luz', 'prender la luz', 'enciende la luz'],
-      eu: ['eusebio piztu argia', 'eusebio pistoardia', 'piztu argia', 'argia piztu'],
+      eu: [
+        'eusebio piztu argia',
+        'eusebio pistoardia',
+        'piztu argia',
+        'argia piztu',
+      ],
     },
   },
   {
     command: 'POWER_OFF',
     phrases: {
-      en: ['turn off the light', 'switch off the light', 'turn the light off', 'light off'],
+      en: [
+        'turn off the light',
+        'switch off the light',
+        'turn the light off',
+        'light off',
+      ],
       es: ['apagar la luz', 'apaga la luz'],
-      eu: ['eusebio itzali argia', 'eusebio italii arvija', 'itzali argia', 'argia itzali'],
+      eu: [
+        'eusebio itzali argia',
+        'eusebio italii arvija',
+        'itzali argia',
+        'argia itzali',
+      ],
     },
   },
   {
@@ -74,7 +94,11 @@ const COMMANDS = [
     phrases: {
       en: ['change the lamp model', 'switch the lamp model', 'change model'],
       es: ['cambiar el modelo de la lámpara', 'cambiar modelo'],
-      eu: ['eusebio aldatu lanpara', 'eusebio aldatulam paramota', 'lanpara aldatu'],
+      eu: [
+        'eusebio aldatu lanpara',
+        'eusebio aldatulam paramota',
+        'lanpara aldatu',
+      ],
     },
   },
   {
@@ -104,7 +128,11 @@ const COMMANDS = [
   {
     command: 'CHANGE_MATERIAL_TO_BEECH',
     phrases: {
-      en: ['change the material to beech', 'switch the material to beech', 'change material to beech'],
+      en: [
+        'change the material to beech',
+        'switch the material to beech',
+        'change material to beech',
+      ],
       es: ['cambiar el material a beech', 'cambiar material a beech'],
       eu: ['eusebio erakutsi aritzez eginiko oinarria'],
     },
@@ -112,7 +140,11 @@ const COMMANDS = [
   {
     command: 'CHANGE_MATERIAL_TO_OAK',
     phrases: {
-      en: ['change the material to oak', 'switch the material to oak', 'change material to oak'],
+      en: [
+        'change the material to oak',
+        'switch the material to oak',
+        'change material to oak',
+      ],
       es: ['cambiar el material a oak', 'cambiar material a oak'],
       eu: ['Eusebio erakutsi pagoz eginiko oinarrria'],
     },
@@ -120,7 +152,11 @@ const COMMANDS = [
   {
     command: 'CHANGE_MATERIAL_TO_WALNUT',
     phrases: {
-      en: ['change the material to walnut', 'switch the material to walnut', 'change material to walnut'],
+      en: [
+        'change the material to walnut',
+        'switch the material to walnut',
+        'change material to walnut',
+      ],
       es: ['cambiar el material a walnut', 'cambiar material a walnut'],
       eu: ['Eusebio erakutsi intxaurrondoz eginiko oinarria'],
     },
