@@ -16,6 +16,7 @@ import {
 } from '@/lib/utils';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import VoiceTrigger from '@/components/VoiceTrigger';
+import SplashScreen from '@/containers/SplashScreen';
 
 const Config = () => {
   const { isFullScreen, setIsFullScreen, language, setLanguage } = useStore();
@@ -39,6 +40,7 @@ const Config = () => {
 
   return (
     <div className="w-full h-dvh flex flex-col lg:flex-row overflow-y-hidden select-none">
+      <SplashScreen />
       <VoiceTrigger />
       {/* 3D */}
       <div
