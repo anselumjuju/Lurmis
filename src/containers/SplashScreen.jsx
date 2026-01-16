@@ -33,7 +33,7 @@ const SplashScreen = () => {
   return (
     <>
       <div
-        className="absolute top-0 left-0 w-full h-screen z-50 bg-white flex items-center justify-center overflow-hidden"
+        className="absolute top-0 left-0 w-full h-screen z-999 bg-white flex items-center justify-center overflow-hidden"
         ref={overlayRef}
       >
         <span className="overflow-hidden">
