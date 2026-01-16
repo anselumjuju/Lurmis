@@ -54,6 +54,13 @@
         "share": "Share",
         "download": "Download"
       }
+    },
+    "voiceCommand": {
+      "listening": "Listening...",
+      "thinking": "Thinking...",
+      "error": "I didn't catch that",
+      "connectionFailed": "Connection failed",
+      "microphoneDenied": "Microphone access denied"
     }
   },
   "es": {
@@ -111,6 +118,13 @@
         "share": "Compartir",
         "download": "Descargar"
       }
+    },
+    "voiceCommand": {
+      "listening": "Escuchando...",
+      "thinking": "Pensando...",
+      "error": "No entendí lo que dijiste",
+      "connectionFailed": "Error de conexión",
+      "microphoneDenied": "Acceso al micrófono denegado"
     }
   },
   "eu": {
@@ -168,6 +182,13 @@
         "share": "Partekatu",
         "download": "Deskargatu"
       }
+    },
+    "voiceCommand": {
+      "listening": "Entzuten...",
+      "thinking": "Pentsatzen...",
+      "error": "Ez dut hori ulertu",
+      "connectionFailed": "Konexioa huts egin du",
+      "microphoneDenied": "Mikrofonorako sarbidea ukatuta"
     }
   }
 }

@@ -1,5 +1,6 @@
 import {audioTranscribe} from '@/lib/audioTranscribe';
 import {detectCommand} from '@/lib/detectCommand';
+import {getTranslation} from '@/lib/utils';
 import useStore from '@/store/store';
 import {useRef, useState, useEffect} from 'react';
 import {useSearchParams} from 'react-router-dom';
@@ -81,7 +82,7 @@ export default function VoiceTrigger() {
 
       mediaRecorder.onstop = async () => {
         setStatus('processing');
-        setMessage('Thinking...');
+        setMessage(getTranslation(store.language, 'voiceCommand.thinking'));
 
         try {
           const audioBlob = new Blob(chunksRef.current, {type: 'audio/webm'});
@@ -92,7 +93,7 @@ export default function VoiceTrigger() {
 
           if (command === 'UNKNOWN') {
             setStatus('error');
-            setMessage("I didn't catch that");
+            setMessage(getTranslation(store.language, 'voiceCommand.error'));
           } else {
             executeCommand(command);
             setStatus('success');
@@ -101,14 +102,14 @@ export default function VoiceTrigger() {
         } catch (err) {
           console.error(err);
           setStatus('error');
-          setMessage('Connection failed');
+          setMessage(getTranslation(store.language, 'voiceCommand.connectionFailed'));
         }
         stream.getTracks().forEach((track) => track.stop());
       };
 
       mediaRecorder.start();
       setStatus('listening');
-      setMessage('Listening...');
+      setMessage(getTranslation(store.language, 'voiceCommand.listening'));
 
       timeoutRef.current = setTimeout(() => {
         if (mediaRecorder.state !== 'inactive') {
@@ -118,7 +119,7 @@ export default function VoiceTrigger() {
     } catch (err) {
       console.error(err);
       setStatus('error');
-      setMessage('Microphone denied');
+      setMessage(getTranslation(store.language, 'voiceCommand.microphoneDenied'));
     }
   };
 
